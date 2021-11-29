@@ -1,0 +1,3 @@
+mode: Mainline
+next-version: 1.0.0
+assembly-informational-format: '{NuGetVersionV2}+{Sha}'
