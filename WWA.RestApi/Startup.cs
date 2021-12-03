@@ -94,8 +94,6 @@ namespace WWA.RestApi
 
             builder.RegisterInstance(Configuration).AsImplementedInterfaces();
 
-            /*RegisterLogging(builder);*/
-            RegisterModules(builder);
             RegisterSingletons(builder);
         }
 
@@ -152,13 +150,6 @@ namespace WWA.RestApi
             host.ApplicationStopped.Register(Log.CloseAndFlush);
         }
 
-        private void RegisterModules(ContainerBuilder builder)
-        {
-            _logger.LogInformation("Registering modules...");
-
-            // Delete this later if it goes unused
-        }
-
         private void RegisterSingletons(ContainerBuilder builder)
         {
             _logger.LogInformation("Registering singletons...");
@@ -184,12 +175,6 @@ namespace WWA.RestApi
                         options.ClusterId = Configuration.GetValue<string>("orleans:clusterId");
                         options.ServiceId = "restapi";
                     })
-                    //.Configure<SerializationProviderOptions>(options =>
-                    //{
-                    //    options.SerializationProviders.Add(typeof(TolerantJsonSerializer));
-                    //    //options.SerializationProviders.Add(typeof(ILBasedSerializer));
-                    //    options.FallbackSerializationProvider = typeof(BondSerializer);
-                    //})
                     .UseMongoDBClient(Configuration.GetValue<string>("mongo:connectionString"))
                     .UseMongoDBClustering(options =>
                     {
