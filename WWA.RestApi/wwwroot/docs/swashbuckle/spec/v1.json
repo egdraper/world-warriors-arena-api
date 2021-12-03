@@ -4,7 +4,7 @@
     "title": "World Warriors Arena REST API",
     "description": "<cool description goes here>",
     "version": "v1",
-    "x-logo": {}
+    "x-logo": { }
   },
   "paths": {
     "/users": {
@@ -31,8 +31,14 @@
           "400": {
             "description": "There were validation errors."
           },
+          "403": {
+            "description": "Not authorized to make this request."
+          },
           "500": {
             "description": "There was an internal server error."
+          },
+          "401": {
+            "description": "Unable to authenticate provided credentials."
           }
         }
       },
@@ -108,8 +114,14 @@
           "400": {
             "description": "There were validation errors."
           },
+          "403": {
+            "description": "Not authorized to make this request."
+          },
           "500": {
             "description": "There was an internal server error."
+          },
+          "401": {
+            "description": "Unable to authenticate provided credentials."
           }
         }
       },
@@ -142,8 +154,14 @@
           "400": {
             "description": "There were validation errors."
           },
+          "403": {
+            "description": "Not authorized to make this request."
+          },
           "500": {
             "description": "There was an internal server error."
+          },
+          "401": {
+            "description": "Unable to authenticate provided credentials."
           }
         }
       }
@@ -177,11 +195,17 @@
               }
             }
           },
+          "403": {
+            "description": "Not authorized to make this request."
+          },
           "404": {
             "description": "The target route does not exist or contains an ID that cannot be found."
           },
           "500": {
             "description": "There was an internal server error."
+          },
+          "401": {
+            "description": "Unable to authenticate provided credentials."
           }
         }
       },
@@ -225,11 +249,17 @@
           "400": {
             "description": "There were validation errors."
           },
+          "403": {
+            "description": "Not authorized to make this request."
+          },
           "404": {
             "description": "The target route does not exist or contains an ID that cannot be found."
           },
           "500": {
             "description": "There was an internal server error."
+          },
+          "401": {
+            "description": "Unable to authenticate provided credentials."
           }
         }
       },
@@ -254,11 +284,17 @@
           "204": {
             "description": "Success"
           },
+          "403": {
+            "description": "Not authorized to make this request."
+          },
           "404": {
             "description": "The target route does not exist or contains an ID that cannot be found."
           },
           "500": {
             "description": "There was an internal server error."
+          },
+          "401": {
+            "description": "Unable to authenticate provided credentials."
           }
         }
       }
@@ -293,11 +329,15 @@
       "UserCreateViewModel": {
         "type": "object",
         "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
           "displayName": {
             "type": "string",
             "nullable": true
           },
-          "email": {
+          "password": {
             "type": "string",
             "nullable": true
           }
@@ -317,6 +357,18 @@
           "displayName": {
             "type": "string",
             "nullable": true
+          },
+          "dateCreated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dateModified": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dateActive": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
@@ -333,11 +385,24 @@
           }
         }
       }
+    },
+    "securitySchemes": {
+      "basic": {
+        "type": "http",
+        "description": "Basic Authorization header using the Bearer scheme.",
+        "scheme": "basic"
+      }
     }
   },
+  "security": [
+    {
+      "basic": [ ]
+    }
+  ],
   "tags": [
     {
-      "name": "Users"
+      "name": "Users",
+      "description": "Admin API for managing Users. Will be moved or hidden at a future date."
     }
   ]
 }
