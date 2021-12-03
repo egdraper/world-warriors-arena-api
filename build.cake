@@ -56,9 +56,9 @@ Task("Autorest")
     var args = new ProcessArgumentBuilder()
       .Append("/c autorest.cmd")
       .Append("--v3")
-      .Append($"--input-file=WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json")
+      .Append($"--input-file=./WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json")
       .Append("--csharp")
-      .Append("--output-folder=WWA.RestApi.CsharpClient/GeneratedCode")
+      .Append("--output-folder=./WWA.RestApi.CsharpClient/GeneratedCode")
       .Append("--namespace=WWA.RestApi.CsharpClient")
       .Append($"--override-client-name=WwaRestApiClient")
       .Append("--clear-output-folder")
@@ -81,6 +81,39 @@ Task("Autorest")
     proc.WaitForExit();
     if (proc.ExitCode != 0) {
       Error("Failed to generate csharp autorest client with the following errors:");
+      while (!proc.StandardError.EndOfStream) {
+        Error(proc.StandardError.ReadLine());
+      }
+    }
+    
+    args = new ProcessArgumentBuilder()
+      .Append("/c autorest.cmd")
+      .Append("--v3")
+      .Append($"--input-file=./WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json")
+      .Append("--typescript")
+      .Append("--output-folder=./WWA.RestApi.TypescriptClient/GeneratedCode")
+      .Append("--namespace=WWA.RestApi.TypescriptClient")
+      .Append($"--override-client-name=WwaRestApiClient")
+      .Append("--clear-output-folder")
+      .Append("--version=latest")
+      .Append("--sync-methods=none")
+      .Append("--markOpenAPI3ErrorsAsWarning")
+      .Append("--legacy")
+      .Append($"/p:Version={gitVersion.NuGetVersionV2}");
+
+    proc = new Process {
+      StartInfo = new ProcessStartInfo("cmd", args.Render()) {
+        UseShellExecute = false,
+        RedirectStandardError = true,
+        CreateNoWindow = true
+      }
+    };
+
+    Information($"Generating typescript autorest client...");
+    proc.Start();
+    proc.WaitForExit();
+    if (proc.ExitCode != 0) {
+      Error("Failed to generate typescript autorest client with the following errors:");
       while (!proc.StandardError.EndOfStream) {
         Error(proc.StandardError.ReadLine());
       }

@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "maptz.regionfolder",
+        "cake-build.cake-vscode",
+        "ms-vscode.powershell"
+    ]
+}
