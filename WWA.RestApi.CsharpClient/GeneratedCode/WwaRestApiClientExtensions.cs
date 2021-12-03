@@ -18,6 +18,39 @@ namespace WWA.RestApi.CsharpClient
     public static partial class WwaRestApiClientExtensions
     {
             /// <summary>
+            /// Tests an Access Token
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task TestAccessTokenAsync(this IWwaRestApiClient operations, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.TestAccessTokenWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
+            /// Creates an Access Token
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='body'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<string> CreateAccessTokenAsync(this IWwaRestApiClient operations, AccessTokenCreateViewModel body = default(AccessTokenCreateViewModel), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CreateAccessTokenWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Queries a User
             /// </summary>
             /// <param name='operations'>

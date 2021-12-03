@@ -7,6 +7,14 @@ import { ServiceClientOptions } from "@azure/ms-rest-js";
 import * as msRest from "@azure/ms-rest-js";
 
 /**
+ * An interface representing AccessTokenCreateViewModel.
+ */
+export interface AccessTokenCreateViewModel {
+  email: string;
+  password: string;
+}
+
+/**
  * An interface representing UserSummaryViewModel.
  */
 export interface UserSummaryViewModel {
@@ -49,6 +57,13 @@ export interface UserReplaceViewModel {
  */
 export interface WwaRestApiClientOptions extends ServiceClientOptions {
   baseUri?: string;
+}
+
+/**
+ * Optional Parameters.
+ */
+export interface WwaRestApiClientCreateAccessTokenOptionalParams extends msRest.RequestOptionsBase {
+  body?: AccessTokenCreateViewModel;
 }
 
 /**
@@ -103,6 +118,31 @@ export interface GetUsersHeaders {
  * @enum {string}
  */
 export type SortDirection = 'Ascending' | 'Descending';
+
+/**
+ * Contains response data for the createAccessToken operation.
+ */
+export type CreateAccessTokenResponse = {
+  /**
+   * The parsed response body.
+   */
+  body: string;
+
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: string;
+    };
+};
 
 /**
  * Contains response data for the getUsers operation.

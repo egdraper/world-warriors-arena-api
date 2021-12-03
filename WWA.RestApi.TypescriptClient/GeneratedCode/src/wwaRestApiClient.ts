@@ -20,6 +20,54 @@ class WwaRestApiClient extends WwaRestApiClientContext {
   }
 
   /**
+   * @summary Tests an Access Token
+   * @param [options] The optional parameters
+   * @returns Promise<msRest.RestResponse>
+   */
+  testAccessToken(options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse>;
+  /**
+   * @param callback The callback
+   */
+  testAccessToken(callback: msRest.ServiceCallback<void>): void;
+  /**
+   * @param options The optional parameters
+   * @param callback The callback
+   */
+  testAccessToken(options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
+  testAccessToken(options?: msRest.RequestOptionsBase | msRest.ServiceCallback<void>, callback?: msRest.ServiceCallback<void>): Promise<msRest.RestResponse> {
+    return this.sendOperationRequest(
+      {
+        options
+      },
+      testAccessTokenOperationSpec,
+      callback);
+  }
+
+  /**
+   * @summary Creates an Access Token
+   * @param [options] The optional parameters
+   * @returns Promise<Models.CreateAccessTokenResponse>
+   */
+  createAccessToken(options?: Models.WwaRestApiClientCreateAccessTokenOptionalParams): Promise<Models.CreateAccessTokenResponse>;
+  /**
+   * @param callback The callback
+   */
+  createAccessToken(callback: msRest.ServiceCallback<string>): void;
+  /**
+   * @param options The optional parameters
+   * @param callback The callback
+   */
+  createAccessToken(options: Models.WwaRestApiClientCreateAccessTokenOptionalParams, callback: msRest.ServiceCallback<string>): void;
+  createAccessToken(options?: Models.WwaRestApiClientCreateAccessTokenOptionalParams | msRest.ServiceCallback<string>, callback?: msRest.ServiceCallback<string>): Promise<Models.CreateAccessTokenResponse> {
+    return this.sendOperationRequest(
+      {
+        options
+      },
+      createAccessTokenOperationSpec,
+      callback) as Promise<Models.CreateAccessTokenResponse>;
+  }
+
+  /**
    * @summary Queries a User
    * @param [options] The optional parameters
    * @returns Promise<msRest.RestResponse>
@@ -178,6 +226,45 @@ class WwaRestApiClient extends WwaRestApiClientContext {
 
 // Operation Specifications
 const serializer = new msRest.Serializer(Mappers);
+const testAccessTokenOperationSpec: msRest.OperationSpec = {
+  httpMethod: "HEAD",
+  path: "accessTokens",
+  responses: {
+    204: {},
+    401: {},
+    403: {},
+    500: {},
+    default: {}
+  },
+  serializer
+};
+
+const createAccessTokenOperationSpec: msRest.OperationSpec = {
+  httpMethod: "POST",
+  path: "accessTokens",
+  requestBody: {
+    parameterPath: [
+      "options",
+      "body"
+    ],
+    mapper: Mappers.AccessTokenCreateViewModel
+  },
+  responses: {
+    200: {
+      bodyMapper: {
+        serializedName: "parsedResponse",
+        type: {
+          name: "String"
+        }
+      }
+    },
+    400: {},
+    500: {},
+    default: {}
+  },
+  serializer
+};
+
 const queryUsersOperationSpec: msRest.OperationSpec = {
   httpMethod: "HEAD",
   path: "users",

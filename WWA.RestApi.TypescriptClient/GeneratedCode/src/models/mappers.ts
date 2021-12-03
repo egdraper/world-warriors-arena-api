@@ -6,6 +6,30 @@
 import * as msRest from "@azure/ms-rest-js";
 
 
+export const AccessTokenCreateViewModel: msRest.CompositeMapper = {
+  serializedName: "AccessTokenCreateViewModel",
+  type: {
+    name: "Composite",
+    className: "AccessTokenCreateViewModel",
+    modelProperties: {
+      email: {
+        required: true,
+        serializedName: "email",
+        type: {
+          name: "String"
+        }
+      },
+      password: {
+        required: true,
+        serializedName: "password",
+        type: {
+          name: "String"
+        }
+      }
+    }
+  }
+};
+
 export const UserSummaryViewModel: msRest.CompositeMapper = {
   serializedName: "UserSummaryViewModel",
   type: {

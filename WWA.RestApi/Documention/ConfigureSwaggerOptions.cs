@@ -8,7 +8,6 @@ using Microsoft.OpenApi.Models;
 using Microsoft.OpenApi.Writers;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using WWA.RestApi.Documention.DocumentFilters;
@@ -60,22 +59,25 @@ namespace WWA.RestApi.Documention
             var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
             options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 
-            options.AddSecurityDefinition("basic", new OpenApiSecurityScheme
+            options.AddSecurityDefinition("Access Token", new OpenApiSecurityScheme
             {
-                Name = "Authorization",
                 Type = SecuritySchemeType.Http,
-                Scheme = "basic",
-                In = ParameterLocation.Header,
-                Description = "Basic Authorization header using the Bearer scheme."
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Access Token"
+                },
+                Scheme = "bearer",
+                BearerFormat = "JWT"
             });
             options.AddSecurityRequirement(new OpenApiSecurityRequirement
             {
                 {
                     new OpenApiSecurityScheme
                     {
-                        Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "basic" }
+                        Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Access Token" }
                     },
-                    new string[] { }
+                    new string[] { "wwa_restapi" }
                 }
             });
 

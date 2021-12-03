@@ -1,7 +1,8 @@
 using Audit.MongoDB.Providers;
 using Autofac;
 using AutoMapper;
-using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
@@ -10,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
 using Orleans;
 using Orleans.Configuration;
@@ -19,11 +21,12 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using System;
 using System.Linq;
+using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 using WWA.Configuration;
 using WWA.RestApi.Documention;
-using WWA.RestApi.Helpers;
 using WWA.RestApi.HostedServices;
 using ILogger = Microsoft.Extensions.Logging.ILogger;
 
@@ -35,6 +38,7 @@ namespace WWA.RestApi
         private readonly ILogger _logger;
         
         public IConfiguration Configuration;
+        public static ApiConfig Config;
         
         public Startup(IConfiguration configuration, ILoggerFactory loggerFactory)
         {
@@ -49,16 +53,54 @@ namespace WWA.RestApi
 
             services.AddCors();
             services.AddControllers();
-            // configure basic authentication 
-            services.AddAuthentication("BasicAuthentication")
-                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
             services.AddOptions();
 
-            services.Configure<ApiConfig>(Configuration.GetSection(ApiConfig.Section));
+            services.Configure<ApiConfig>(Configuration);
+            Config = Configuration.Get<ApiConfig>();
 
             services.AddAutoMapper(typeof(AutoMapperProfile));
 
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer("WWA", options =>
+                {
+                    options.Audience = Config.Identity.Audience;
+                    options.RequireHttpsMetadata = true;
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidIssuer = Config.Identity.Issuer,
+                        ValidateIssuer = true,
+                        ValidAudience = Config.Identity.Audience,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        // TODO: Switch to a cert later and then sign with new X509SecurityKey(new X509Certificate2(rawData)).
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Config.Identity.Secret)),
+                        ValidateIssuerSigningKey = true
+                };
+                    options.Events = new JwtBearerEvents
+                    {
+                        OnAuthenticationFailed = context =>
+                        {
+                            Console.WriteLine("OnAuthenticationFailed: " +
+                                context.Exception.Message);
+                            return Task.CompletedTask;
+                        },
+                        OnTokenValidated = context =>
+                        {
+                            Console.WriteLine("OnTokenValidated: " +
+                                context.SecurityToken);
+                            return Task.CompletedTask;
+                        }
+                    };
+                });
+            services.AddAuthorization(options =>
+            {
+                options.DefaultPolicy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .AddAuthenticationSchemes(new[] { "WWA" })
+                    .RequireClaim("scope", "wwa_restapi")
+                    .Build();
+            });
             services
                 .AddMvc(options =>
                 {
@@ -183,9 +225,7 @@ namespace WWA.RestApi
                     })
                     .Build();
                 return clusterClient;
-            })
-            .As<IClusterClient>()
-            .SingleInstance();
+            }).As<IClusterClient>().SingleInstance();
         }
     }
 }

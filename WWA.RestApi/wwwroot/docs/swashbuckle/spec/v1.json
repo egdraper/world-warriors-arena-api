@@ -7,6 +7,63 @@
     "x-logo": { }
   },
   "paths": {
+    "/accessTokens": {
+      "head": {
+        "tags": [
+          "AccessTokens"
+        ],
+        "summary": "Tests an Access Token",
+        "operationId": "TestAccessToken",
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "403": {
+            "description": "Not authorized to make this request."
+          },
+          "500": {
+            "description": "There was an internal server error."
+          },
+          "401": {
+            "description": "Unable to authenticate provided credentials."
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "AccessTokens"
+        ],
+        "summary": "Creates an Access Token",
+        "operationId": "CreateAccessToken",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccessTokenCreateViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved a list of  Access Tokens.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "There were validation errors."
+          },
+          "500": {
+            "description": "There was an internal server error."
+          }
+        }
+      }
+    },
     "/users": {
       "head": {
         "tags": [
@@ -302,6 +359,21 @@
   },
   "components": {
     "schemas": {
+      "AccessTokenCreateViewModel": {
+        "required": [
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
       "SortDirectionType": {
         "enum": [
           "Ascending",
@@ -387,19 +459,25 @@
       }
     },
     "securitySchemes": {
-      "basic": {
+      "Access Token": {
         "type": "http",
-        "description": "Basic Authorization header using the Bearer scheme.",
-        "scheme": "basic"
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
   },
   "security": [
     {
-      "basic": [ ]
+      "Access Token": [
+        "wwa_restapi"
+      ]
     }
   ],
   "tags": [
+    {
+      "name": "AccessTokens",
+      "description": "API for generating tokens used to authenticate other operations."
+    },
     {
       "name": "Users",
       "description": "Admin API for managing Users. Will be moved or hidden at a future date."

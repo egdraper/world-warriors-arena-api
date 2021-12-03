@@ -36,6 +36,30 @@ namespace WWA.RestApi.CsharpClient
 
 
         /// <summary>
+        /// Tests an Access Token
+        /// </summary>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse> TestAccessTokenWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Creates an Access Token
+        /// </summary>
+        /// <param name='body'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<string>> CreateAccessTokenWithHttpMessagesAsync(AccessTokenCreateViewModel body = default(AccessTokenCreateViewModel), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Queries a User
         /// </summary>
         /// <param name='email'>
