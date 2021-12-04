@@ -6,6 +6,6 @@ namespace WWA.Configuration
         public string Issuer { get; set; }
         public string Audience { get; set; }
         public string Secret { get; set; }
-        public int TokenExpiryInMinutes { get; set; }
+        public int TokenExpiryInHours { get; set; }
     }
 }

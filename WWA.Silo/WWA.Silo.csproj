@@ -42,6 +42,7 @@
   <ItemGroup>
     <ProjectReference Include="..\WWA.Configuration\WWA.Configuration.csproj" />
     <ProjectReference Include="..\WWA.GrainInterfaces\WWA.GrainInterfaces.csproj" />
+    <ProjectReference Include="..\WWA.Grains.Games\WWA.Grains.Games.csproj" />
     <ProjectReference Include="..\WWA.Grains.Users\WWA.Grains.Users.csproj" />
     <ProjectReference Include="..\WWA.Grains\WWA.Grains.csproj" />
   </ItemGroup>

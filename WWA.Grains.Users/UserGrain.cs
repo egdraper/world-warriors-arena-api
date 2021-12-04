@@ -12,7 +12,6 @@ namespace WWA.Grains.Users
     public interface IUserGrain : IGrainWithStringKey
     {
         Task<UserState> GetUserAsync();
-        Task<UserState> CreateUserAsync(UserState userState);
         Task<UserState> ReplaceUserAsync(UserState userState);
         Task DeleteUserAsync();
     }
@@ -44,8 +43,6 @@ namespace WWA.Grains.Users
             {
                 User user = await _userRepository.GetAsync(primaryKey);
                 _user.State = _mapper.Map<UserState>(user);
-                _user.State.DateCreated = DateTime.UtcNow;
-                _user.State.DateModified = DateTime.UtcNow;
             }
             _user.State.DateActive = DateTime.UtcNow;
             await _user.WriteStateAsync();
@@ -59,13 +56,6 @@ namespace WWA.Grains.Users
             {
                 throw new Exception($"Unable to load User with id: {this.GetPrimaryKeyString()}");
             }
-            return Task.FromResult(_user.State);
-        }
-
-        public Task<UserState> CreateUserAsync(UserState userState)
-        {
-            _user.State = userState;
-            _user.WriteStateAsync();
             return Task.FromResult(_user.State);
         }
 

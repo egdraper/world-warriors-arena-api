@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using Orleans;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -124,6 +125,11 @@ namespace WWA.Grains
 
         protected async Task CreateAsync(TEntity entity)
         {
+            if (entity is TrackedEntity tracked)
+            {
+                tracked.DateCreated = DateTime.UtcNow;
+                tracked.DateModified = DateTime.UtcNow;
+            }
             await _collection.InsertOneAsync(entity);
         }
 

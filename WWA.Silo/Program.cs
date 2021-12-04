@@ -26,6 +26,7 @@ using System.Threading.Tasks;
 using WWA.Configuration;
 using WWA.Grains.Constants;
 using WWA.Grains.Mongo;
+using WWA.Grains.Games;
 using WWA.Grains.Users;
 using WWA.Silo.Filters;
 
@@ -69,6 +70,7 @@ namespace WWA.Silo
                     })
                     .ConfigureServices((context, services) =>
                     {
+                        services.AddAutoMapper(typeof(Grains.Games.AutoMapperProfile));
                         services.AddAutoMapper(typeof(Grains.Users.AutoMapperProfile));
 
                         services.Configure<ClusterMembershipOptions>(options =>
@@ -168,6 +170,8 @@ namespace WWA.Silo
 #endif
                         builder.ConfigureApplicationParts(parts =>
                             parts
+                                .AddApplicationPart(typeof(GameService).Assembly)
+                                .AddApplicationPart(typeof(GameGrain).Assembly)
                                 .AddApplicationPart(typeof(UserService).Assembly)
                                 .AddApplicationPart(typeof(UserGrain).Assembly)
                                 .WithReferences());
@@ -186,11 +190,14 @@ namespace WWA.Silo
         private static void ConfigureContainer(ContainerBuilder builder)
         {
             // Grains
+            builder.RegisterType<GameService>().AsSelf();
+            builder.RegisterType<GameGrain>().AsSelf();
             builder.RegisterType<UserService>().AsSelf();
             builder.RegisterType<UserGrain>().AsSelf();
 
             // Repositories
             builder.RegisterType<MongoContext>().As<IMongoContext>().SingleInstance();
+            builder.RegisterType<GameRepository>().As<IGameRepository>().SingleInstance();
             builder.RegisterType<UserRepository>().As<IUserRepository>().SingleInstance();
         }
 

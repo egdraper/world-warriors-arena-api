@@ -3,7 +3,7 @@
     "issuer": "World Warriors Arena",
     "audience": "wwa.restapi",
     "secret": "keepitsecretkeepitsafe",
-    "tokenExpiryInMinutes": 60
+    "tokenExpiryInHours": 8
   },
   "mongo": {
     "connectionString": "mongodb://localhost:27017/wwa?readPreference=primary&ssl=false"
