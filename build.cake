@@ -8,12 +8,17 @@ using System.Linq;
 #addin nuget:?package=Cake.Git&version=0.21.0
 #addin nuget:?package=Cake.Npm&version=0.17.0
 #addin nuget:?package=Cake.FileHelpers&version=3.2.0
+#addin nuget:?package=Cake.Incubator
 /* #endregion Addins */
 
 /* #region  Tools */
-#tool nuget:?package=GitVersion.CommandLine&version=5.0.1
+#tool "dotnet:?package=GitVersion.Tool"
 #tool nuget:?package=vswhere&version=2.3.7
 /* #endregion Tools */
+
+/* #region Variables */
+GitVersion gitVersion;
+/* #endregion Variables */
 
 /* #region  Arguments */
 var target = Argument("target", "Default");
@@ -21,21 +26,10 @@ var configuration = Argument("configuration", "Release");
 var baseApiUrl = Argument("baseApiUrl", "http://localhost:8100");
 /* #endregion Arguments */
 
-/* #region  Variables */
-// GitVersion gitVersion;
-// var isMasterBranch = gitVersion.BranchName.StartsWith("main");
-/* #endregion Variables */
-
-/* #region  Functions */
-ProcessArgumentBuilder AddVersionArg(ProcessArgumentBuilder args) {
-  // args.Append($"/p:Version={gitVersion.NuGetVersionV2}");
-  return args;
-}
-/* #endregion Functions */
-
-// Task("GitVersion").Does(() => {
-//   gitVersion = GitVersion();
-// });
+Task("GitVersion").Does(() => {
+  gitVersion = GitVersion();
+  Console.WriteLine(gitVersion.Dump());
+});
 
 /* #region  Autorest */
 Task("InstallAutorest").Does(() => {
@@ -43,33 +37,36 @@ Task("InstallAutorest").Does(() => {
 });
 
 Task("Swagger").Does(() => {
-  DotNetBuild("WWA.RestApi/WWA.RestApi.csproj", settings => settings
-    .SetConfiguration(configuration)
-    .SetMaxCpuCount(0)
-    .SetVerbosity(Verbosity.Minimal)
-  // .WithWarningsAsError()
-  // .WithWarningsAsMessage(new [] { "CS3021" })
-    .WithProperty("GenerateSwagger", new string[] { "true" })
-  );
+  var settings = new DotNetBuildSettings
+  {
+    Verbosity = DotNetVerbosity.Minimal,
+    EnvironmentVariables = new Dictionary<string,string>
+    {
+      ["GenerateSwagger"] = "true"
+    }
+  };
+  DotNetBuild("WWA.RestApi/WWA.RestApi.csproj", settings);
 });
 
 Task("Autorest")
+  .IsDependentOn("GitVersion")
   .IsDependentOn("Swagger")
   .IsDependentOn("InstallAutorest")
 .Does(() => {
     var args = new ProcessArgumentBuilder()
       .Append("/c autorest.cmd")
       .Append("--v3")
-      .Append($"--input-file=WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json")
+      .Append($"--input-file=./WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json")
       .Append("--csharp")
-      .Append("--output-folder=WWA.RestApi.CsharpClient/GeneratedCode")
+      .Append("--output-folder=./WWA.RestApi.CsharpClient/GeneratedCode")
       .Append("--namespace=WWA.RestApi.CsharpClient")
       .Append($"--override-client-name=WwaRestApiClient")
       .Append("--clear-output-folder")
       .Append("--version=latest")
       .Append("--sync-methods=none")
       .Append("--markOpenAPI3ErrorsAsWarning")
-      .Append("--legacy");
+      .Append("--legacy")
+      .Append($"/p:Version={gitVersion.NuGetVersionV2}");
 
     var proc = new Process {
       StartInfo = new ProcessStartInfo("cmd", args.Render()) {
@@ -84,6 +81,39 @@ Task("Autorest")
     proc.WaitForExit();
     if (proc.ExitCode != 0) {
       Error("Failed to generate csharp autorest client with the following errors:");
+      while (!proc.StandardError.EndOfStream) {
+        Error(proc.StandardError.ReadLine());
+      }
+    }
+    
+    args = new ProcessArgumentBuilder()
+      .Append("/c autorest.cmd")
+      .Append("--v3")
+      .Append($"--input-file=./WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json")
+      .Append("--typescript")
+      .Append("--output-folder=./WWA.RestApi.TypescriptClient/GeneratedCode")
+      .Append("--namespace=WWA.RestApi.TypescriptClient")
+      .Append($"--override-client-name=WwaRestApiClient")
+      .Append("--clear-output-folder")
+      .Append("--version=latest")
+      .Append("--sync-methods=none")
+      .Append("--markOpenAPI3ErrorsAsWarning")
+      .Append("--legacy")
+      .Append($"/p:Version={gitVersion.NuGetVersionV2}");
+
+    proc = new Process {
+      StartInfo = new ProcessStartInfo("cmd", args.Render()) {
+        UseShellExecute = false,
+        RedirectStandardError = true,
+        CreateNoWindow = true
+      }
+    };
+
+    Information($"Generating typescript autorest client...");
+    proc.Start();
+    proc.WaitForExit();
+    if (proc.ExitCode != 0) {
+      Error("Failed to generate typescript autorest client with the following errors:");
       while (!proc.StandardError.EndOfStream) {
         Error(proc.StandardError.ReadLine());
       }

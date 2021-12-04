@@ -1,0 +1,3010 @@
+{
+ "$id": "1",
+ "modelTypes": [
+  {
+   "$id": "2",
+   "$type": "CompositeType",
+   "properties": [
+    {
+     "$id": "3",
+     "isReadOnly": false,
+     "realPath": [
+      "email"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "4",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "5",
+      "fixed": false
+     },
+     "isRequired": true,
+     "isConstant": false,
+     "name": {
+      "$id": "6",
+      "fixed": false,
+      "raw": "email"
+     },
+     "serializedName": "email",
+     "modelType": {
+      "$id": "7",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "8",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "9",
+     "isReadOnly": false,
+     "realPath": [
+      "password"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "10",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "11",
+      "fixed": false
+     },
+     "isRequired": true,
+     "isConstant": false,
+     "name": {
+      "$id": "12",
+      "fixed": false,
+      "raw": "password"
+     },
+     "serializedName": "password",
+     "modelType": {
+      "$id": "13",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "14",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    }
+   ],
+   "serializedName": "AccessTokenCreateViewModel",
+   "containsConstantProperties": false,
+   "name": {
+    "$id": "15",
+    "fixed": false,
+    "raw": "AccessTokenCreateViewModel"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "v1"
+     ],
+     "filename": [
+      "mem:///124?oai3.shaken.json"
+     ],
+     "name": "AccessTokenCreateViewModel",
+     "originalLocations": [
+      "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/schemas/AccessTokenCreateViewModel"
+     ]
+    }
+   },
+   "deprecated": false
+  },
+  {
+   "$id": "16",
+   "$type": "CompositeType",
+   "properties": [
+    {
+     "$id": "17",
+     "isReadOnly": false,
+     "realPath": [
+      "id"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "18",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "19",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "20",
+      "fixed": false,
+      "raw": "id"
+     },
+     "serializedName": "id",
+     "modelType": {
+      "$id": "21",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "22",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "23",
+     "isReadOnly": false,
+     "realPath": [
+      "email"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "24",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "25",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "26",
+      "fixed": false,
+      "raw": "email"
+     },
+     "serializedName": "email",
+     "modelType": {
+      "$id": "27",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "28",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "29",
+     "isReadOnly": false,
+     "realPath": [
+      "displayName"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "30",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "31",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "32",
+      "fixed": false,
+      "raw": "displayName"
+     },
+     "serializedName": "displayName",
+     "modelType": {
+      "$id": "33",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "34",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    }
+   ],
+   "serializedName": "UserSummaryViewModel",
+   "containsConstantProperties": false,
+   "name": {
+    "$id": "35",
+    "fixed": false,
+    "raw": "UserSummaryViewModel"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "v1"
+     ],
+     "filename": [
+      "mem:///124?oai3.shaken.json"
+     ],
+     "name": "UserSummaryViewModel",
+     "originalLocations": [
+      "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/schemas/UserSummaryViewModel"
+     ]
+    }
+   },
+   "deprecated": false
+  },
+  {
+   "$id": "36",
+   "$type": "CompositeType",
+   "properties": [
+    {
+     "$id": "37",
+     "isReadOnly": false,
+     "realPath": [
+      "email"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "38",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "39",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "40",
+      "fixed": false,
+      "raw": "email"
+     },
+     "serializedName": "email",
+     "modelType": {
+      "$id": "41",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "42",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "43",
+     "isReadOnly": false,
+     "realPath": [
+      "displayName"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "44",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "45",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "46",
+      "fixed": false,
+      "raw": "displayName"
+     },
+     "serializedName": "displayName",
+     "modelType": {
+      "$id": "47",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "48",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "49",
+     "isReadOnly": false,
+     "realPath": [
+      "password"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "50",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "51",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "52",
+      "fixed": false,
+      "raw": "password"
+     },
+     "serializedName": "password",
+     "modelType": {
+      "$id": "53",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "54",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    }
+   ],
+   "serializedName": "UserCreateViewModel",
+   "containsConstantProperties": false,
+   "name": {
+    "$id": "55",
+    "fixed": false,
+    "raw": "UserCreateViewModel"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "v1"
+     ],
+     "filename": [
+      "mem:///124?oai3.shaken.json"
+     ],
+     "name": "UserCreateViewModel",
+     "originalLocations": [
+      "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/schemas/UserCreateViewModel"
+     ]
+    }
+   },
+   "deprecated": false
+  },
+  {
+   "$id": "56",
+   "$type": "CompositeType",
+   "properties": [
+    {
+     "$id": "57",
+     "isReadOnly": false,
+     "realPath": [
+      "id"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "58",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "59",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "60",
+      "fixed": false,
+      "raw": "id"
+     },
+     "serializedName": "id",
+     "modelType": {
+      "$id": "61",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "62",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "63",
+     "isReadOnly": false,
+     "realPath": [
+      "email"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "64",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "65",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "66",
+      "fixed": false,
+      "raw": "email"
+     },
+     "serializedName": "email",
+     "modelType": {
+      "$id": "67",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "68",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "69",
+     "isReadOnly": false,
+     "realPath": [
+      "displayName"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "70",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "71",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "72",
+      "fixed": false,
+      "raw": "displayName"
+     },
+     "serializedName": "displayName",
+     "modelType": {
+      "$id": "73",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "74",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "75",
+     "isReadOnly": false,
+     "realPath": [
+      "dateCreated"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "76",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "77",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "78",
+      "fixed": false,
+      "raw": "dateCreated"
+     },
+     "serializedName": "dateCreated",
+     "modelType": {
+      "$id": "79",
+      "$type": "PrimaryType",
+      "format": "date-time",
+      "knownPrimaryType": "dateTime",
+      "name": {
+       "$id": "80",
+       "fixed": false,
+       "raw": "DateTime"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "81",
+     "isReadOnly": false,
+     "realPath": [
+      "dateModified"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "82",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "83",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "84",
+      "fixed": false,
+      "raw": "dateModified"
+     },
+     "serializedName": "dateModified",
+     "modelType": {
+      "$id": "85",
+      "$type": "PrimaryType",
+      "format": "date-time",
+      "knownPrimaryType": "dateTime",
+      "name": {
+       "$id": "86",
+       "fixed": false,
+       "raw": "DateTime"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "87",
+     "isReadOnly": false,
+     "realPath": [
+      "dateActive"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "88",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "89",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "90",
+      "fixed": false,
+      "raw": "dateActive"
+     },
+     "serializedName": "dateActive",
+     "modelType": {
+      "$id": "91",
+      "$type": "PrimaryType",
+      "format": "date-time",
+      "knownPrimaryType": "dateTime",
+      "name": {
+       "$id": "92",
+       "fixed": false,
+       "raw": "DateTime"
+      },
+      "deprecated": false
+     }
+    }
+   ],
+   "serializedName": "UserReadViewModel",
+   "containsConstantProperties": false,
+   "name": {
+    "$id": "93",
+    "fixed": false,
+    "raw": "UserReadViewModel"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "v1"
+     ],
+     "filename": [
+      "mem:///124?oai3.shaken.json"
+     ],
+     "name": "UserReadViewModel",
+     "originalLocations": [
+      "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/schemas/UserReadViewModel"
+     ]
+    }
+   },
+   "deprecated": false
+  },
+  {
+   "$id": "94",
+   "$type": "CompositeType",
+   "properties": [
+    {
+     "$id": "95",
+     "isReadOnly": false,
+     "realPath": [
+      "email"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "96",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "97",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "98",
+      "fixed": false,
+      "raw": "email"
+     },
+     "serializedName": "email",
+     "modelType": {
+      "$id": "99",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "100",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "101",
+     "isReadOnly": false,
+     "realPath": [
+      "displayName"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "102",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "103",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "104",
+      "fixed": false,
+      "raw": "displayName"
+     },
+     "serializedName": "displayName",
+     "modelType": {
+      "$id": "105",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "106",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    }
+   ],
+   "serializedName": "UserReplaceViewModel",
+   "containsConstantProperties": false,
+   "name": {
+    "$id": "107",
+    "fixed": false,
+    "raw": "UserReplaceViewModel"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "v1"
+     ],
+     "filename": [
+      "mem:///124?oai3.shaken.json"
+     ],
+     "name": "UserReplaceViewModel",
+     "originalLocations": [
+      "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/schemas/UserReplaceViewModel"
+     ]
+    }
+   },
+   "deprecated": false
+  }
+ ],
+ "headerTypes": [
+  {
+   "$id": "108",
+   "$type": "CompositeType",
+   "properties": [
+    {
+     "$id": "109",
+     "isReadOnly": false,
+     "realPath": [
+      "X-Total-Count"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "110",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "111",
+      "fixed": false,
+      "raw": "The total number of filtered resources."
+     },
+     "extensions": {
+      "x-ms-metadata": {
+       "apiVersions": [
+        "v1"
+       ],
+       "filename": [
+        "mem:///124?oai3.shaken.json"
+       ],
+       "name": "paths·1pjhf0t·users·get·responses·200·headers·x_total_count",
+       "originalLocations": [
+        "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/headers/paths·1pjhf0t·users·get·responses·200·headers·x_total_count"
+       ]
+      }
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "112",
+      "fixed": false,
+      "raw": "X-Total-Count"
+     },
+     "serializedName": "X-Total-Count",
+     "modelType": {
+      "$id": "113",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "double",
+      "name": {
+       "$id": "114",
+       "fixed": false,
+       "raw": "Double"
+      },
+      "deprecated": false
+     }
+    }
+   ],
+   "serializedName": "GetUsers-Headers",
+   "documentation": "Defines headers for GetUsers operation.",
+   "containsConstantProperties": false,
+   "name": {
+    "$id": "115",
+    "fixed": false,
+    "raw": "GetUsers-Headers"
+   },
+   "deprecated": false
+  }
+ ],
+ "name": "WorldWarriorsArenaRESTAPI",
+ "namespace": "WWA.RestApi.TypescriptClient",
+ "modelsName": "Models",
+ "apiVersion": "v1",
+ "baseUrl": "http://localhost",
+ "documentation": "<cool description goes here>",
+ "extensions": {
+  "security": [
+   {
+    "Access Token": [
+     "wwa_restapi"
+    ]
+   }
+  ]
+ },
+ "properties": [
+  {
+   "$id": "116",
+   "isReadOnly": false,
+   "realPath": [
+    "email"
+   ],
+   "collectionFormat": "none",
+   "defaultValue": {
+    "$id": "117",
+    "fixed": false
+   },
+   "deprecated": false,
+   "documentation": {
+    "$id": "118",
+    "fixed": false
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "v1"
+     ],
+     "filename": [
+      "mem:///124?oai3.shaken.json"
+     ],
+     "name": "paths·nkseku·users·head·parameters·0",
+     "originalLocations": [
+      "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/parameters/paths·nkseku·users·head·parameters·0"
+     ]
+    },
+    "x-ms-parameter-location": "method"
+   },
+   "isRequired": false,
+   "isConstant": false,
+   "name": {
+    "$id": "119",
+    "fixed": false,
+    "raw": "email"
+   },
+   "serializedName": "email",
+   "modelType": {
+    "$id": "120",
+    "$type": "PrimaryType",
+    "knownPrimaryType": "string",
+    "name": {
+     "$id": "121",
+     "fixed": false,
+     "raw": "String"
+    },
+    "deprecated": false
+   }
+  },
+  {
+   "$id": "122",
+   "isReadOnly": false,
+   "realPath": [
+    "Skip"
+   ],
+   "collectionFormat": "none",
+   "defaultValue": {
+    "$id": "123",
+    "fixed": false
+   },
+   "deprecated": false,
+   "documentation": {
+    "$id": "124",
+    "fixed": false
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "v1"
+     ],
+     "filename": [
+      "mem:///124?oai3.shaken.json"
+     ],
+     "name": "paths·5iwl8j·users·get·parameters·0",
+     "originalLocations": [
+      "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/parameters/paths·5iwl8j·users·get·parameters·0"
+     ]
+    },
+    "x-ms-parameter-location": "method"
+   },
+   "isRequired": false,
+   "isConstant": false,
+   "name": {
+    "$id": "125",
+    "fixed": false,
+    "raw": "Skip"
+   },
+   "serializedName": "Skip",
+   "modelType": {
+    "$id": "126",
+    "$type": "PrimaryType",
+    "format": "int32",
+    "knownPrimaryType": "int",
+    "name": {
+     "$id": "127",
+     "fixed": false,
+     "raw": "Int"
+    },
+    "deprecated": false
+   }
+  },
+  {
+   "$id": "128",
+   "isReadOnly": false,
+   "realPath": [
+    "Take"
+   ],
+   "collectionFormat": "none",
+   "defaultValue": {
+    "$id": "129",
+    "fixed": false
+   },
+   "deprecated": false,
+   "documentation": {
+    "$id": "130",
+    "fixed": false
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "v1"
+     ],
+     "filename": [
+      "mem:///124?oai3.shaken.json"
+     ],
+     "name": "paths·1umxab4·users·get·parameters·1",
+     "originalLocations": [
+      "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/parameters/paths·1umxab4·users·get·parameters·1"
+     ]
+    },
+    "x-ms-parameter-location": "method"
+   },
+   "isRequired": false,
+   "isConstant": false,
+   "name": {
+    "$id": "131",
+    "fixed": false,
+    "raw": "Take"
+   },
+   "serializedName": "Take",
+   "modelType": {
+    "$id": "132",
+    "$type": "PrimaryType",
+    "format": "int32",
+    "knownPrimaryType": "int",
+    "name": {
+     "$id": "133",
+     "fixed": false,
+     "raw": "Int"
+    },
+    "deprecated": false
+   }
+  },
+  {
+   "$id": "134",
+   "isReadOnly": false,
+   "realPath": [
+    "SortField"
+   ],
+   "collectionFormat": "none",
+   "defaultValue": {
+    "$id": "135",
+    "fixed": false
+   },
+   "deprecated": false,
+   "documentation": {
+    "$id": "136",
+    "fixed": false
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "v1"
+     ],
+     "filename": [
+      "mem:///124?oai3.shaken.json"
+     ],
+     "name": "paths·9ylruc·users·get·parameters·2",
+     "originalLocations": [
+      "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/parameters/paths·9ylruc·users·get·parameters·2"
+     ]
+    },
+    "x-ms-parameter-location": "method"
+   },
+   "isRequired": false,
+   "isConstant": false,
+   "name": {
+    "$id": "137",
+    "fixed": false,
+    "raw": "SortField"
+   },
+   "serializedName": "SortField",
+   "modelType": {
+    "$id": "138",
+    "$type": "PrimaryType",
+    "knownPrimaryType": "string",
+    "name": {
+     "$id": "139",
+     "fixed": false,
+     "raw": "String"
+    },
+    "deprecated": false
+   }
+  },
+  {
+   "$id": "140",
+   "isReadOnly": false,
+   "realPath": [
+    "SortDirection"
+   ],
+   "collectionFormat": "none",
+   "defaultValue": {
+    "$id": "141",
+    "fixed": false
+   },
+   "deprecated": false,
+   "documentation": {
+    "$id": "142",
+    "fixed": false
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "v1"
+     ],
+     "filename": [
+      "mem:///124?oai3.shaken.json"
+     ],
+     "name": "paths·s1hyhz·users·get·parameters·3",
+     "originalLocations": [
+      "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/parameters/paths·s1hyhz·users·get·parameters·3"
+     ]
+    },
+    "x-ms-parameter-location": "method"
+   },
+   "isRequired": false,
+   "isConstant": false,
+   "name": {
+    "$id": "143",
+    "fixed": false,
+    "raw": "SortDirection"
+   },
+   "serializedName": "SortDirection",
+   "modelType": {
+    "$id": "144",
+    "$type": "EnumType",
+    "values": [
+     {
+      "$id": "145",
+      "name": "Ascending",
+      "serializedName": "Ascending"
+     },
+     {
+      "$id": "146",
+      "name": "Descending",
+      "serializedName": "Descending"
+     }
+    ],
+    "oldModelAsString": false,
+    "modelAsString": true,
+    "underlyingType": {
+     "$id": "147",
+     "$type": "PrimaryType",
+     "knownPrimaryType": "string",
+     "name": {
+      "$id": "148",
+      "fixed": false,
+      "raw": "String"
+     },
+     "deprecated": false
+    },
+    "name": {
+     "$id": "149",
+     "fixed": false,
+     "raw": ""
+    },
+    "deprecated": false
+   }
+  },
+  {
+   "$id": "150",
+   "isReadOnly": false,
+   "realPath": [
+    "Search"
+   ],
+   "collectionFormat": "none",
+   "defaultValue": {
+    "$id": "151",
+    "fixed": false
+   },
+   "deprecated": false,
+   "documentation": {
+    "$id": "152",
+    "fixed": false
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "v1"
+     ],
+     "filename": [
+      "mem:///124?oai3.shaken.json"
+     ],
+     "name": "paths·1n6sqyx·users·get·parameters·4",
+     "originalLocations": [
+      "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/parameters/paths·1n6sqyx·users·get·parameters·4"
+     ]
+    },
+    "x-ms-parameter-location": "method"
+   },
+   "isRequired": false,
+   "isConstant": false,
+   "name": {
+    "$id": "153",
+    "fixed": false,
+    "raw": "Search"
+   },
+   "serializedName": "Search",
+   "modelType": {
+    "$id": "154",
+    "$type": "PrimaryType",
+    "knownPrimaryType": "string",
+    "name": {
+     "$id": "155",
+     "fixed": false,
+     "raw": "String"
+    },
+    "deprecated": false
+   }
+  },
+  {
+   "$id": "156",
+   "isReadOnly": false,
+   "realPath": [
+    "id"
+   ],
+   "collectionFormat": "none",
+   "defaultValue": {
+    "$id": "157",
+    "fixed": false
+   },
+   "deprecated": false,
+   "documentation": {
+    "$id": "158",
+    "fixed": false
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "v1"
+     ],
+     "filename": [
+      "mem:///124?oai3.shaken.json"
+     ],
+     "name": "paths·beuzeb·users-id·get·parameters·0",
+     "originalLocations": [
+      "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/parameters/paths·beuzeb·users-id·get·parameters·0"
+     ]
+    },
+    "x-ms-parameter-location": "method"
+   },
+   "isRequired": true,
+   "isConstant": false,
+   "name": {
+    "$id": "159",
+    "fixed": false,
+    "raw": "id"
+   },
+   "serializedName": "id",
+   "modelType": {
+    "$id": "160",
+    "$type": "PrimaryType",
+    "knownPrimaryType": "string",
+    "name": {
+     "$id": "161",
+     "fixed": false,
+     "raw": "String"
+    },
+    "deprecated": false
+   }
+  },
+  {
+   "$id": "162",
+   "isReadOnly": false,
+   "realPath": [
+    "id"
+   ],
+   "collectionFormat": "none",
+   "defaultValue": {
+    "$id": "163",
+    "fixed": false
+   },
+   "deprecated": false,
+   "documentation": {
+    "$id": "164",
+    "fixed": false
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "v1"
+     ],
+     "filename": [
+      "mem:///124?oai3.shaken.json"
+     ],
+     "name": "paths·1r4fyij·users-id·put·parameters·0",
+     "originalLocations": [
+      "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/parameters/paths·1r4fyij·users-id·put·parameters·0"
+     ]
+    },
+    "x-ms-parameter-location": "method"
+   },
+   "isRequired": true,
+   "isConstant": false,
+   "name": {
+    "$id": "165",
+    "fixed": false,
+    "raw": "Id1"
+   },
+   "serializedName": "id",
+   "modelType": {
+    "$id": "166",
+    "$type": "PrimaryType",
+    "knownPrimaryType": "string",
+    "name": {
+     "$id": "167",
+     "fixed": false,
+     "raw": "String"
+    },
+    "deprecated": false
+   }
+  },
+  {
+   "$id": "168",
+   "isReadOnly": false,
+   "realPath": [
+    "id"
+   ],
+   "collectionFormat": "none",
+   "defaultValue": {
+    "$id": "169",
+    "fixed": false
+   },
+   "deprecated": false,
+   "documentation": {
+    "$id": "170",
+    "fixed": false
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "v1"
+     ],
+     "filename": [
+      "mem:///124?oai3.shaken.json"
+     ],
+     "name": "paths·mghx75·users-id·delete·parameters·0",
+     "originalLocations": [
+      "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/parameters/paths·mghx75·users-id·delete·parameters·0"
+     ]
+    },
+    "x-ms-parameter-location": "method"
+   },
+   "isRequired": true,
+   "isConstant": false,
+   "name": {
+    "$id": "171",
+    "fixed": false,
+    "raw": "Id2"
+   },
+   "serializedName": "id",
+   "modelType": {
+    "$id": "172",
+    "$type": "PrimaryType",
+    "knownPrimaryType": "string",
+    "name": {
+     "$id": "173",
+     "fixed": false,
+     "raw": "String"
+    },
+    "deprecated": false
+   }
+  }
+ ],
+ "operations": [
+  {
+   "$id": "174",
+   "methods": [
+    {
+     "$id": "175",
+     "name": {
+      "$id": "176",
+      "fixed": false,
+      "raw": "TestAccessToken"
+     },
+     "group": {
+      "$id": "177",
+      "fixed": false,
+      "raw": ""
+     },
+     "serializedName": "TestAccessToken",
+     "url": "/accessTokens",
+     "isAbsoluteUrl": false,
+     "httpMethod": "head",
+     "responses": {
+      "NoContent": {
+       "$id": "178",
+       "extensions": {
+        "$id": "179",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·17n8dn0·accesstokens·head·responses·204",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·17n8dn0·accesstokens·head·responses·204"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "Unauthorized": {
+       "$id": "180",
+       "extensions": {
+        "$id": "181",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·1le1jzh·accesstokens·head·responses·401",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·1le1jzh·accesstokens·head·responses·401"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "Forbidden": {
+       "$id": "182",
+       "extensions": {
+        "$id": "183",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·z3mvmr·accesstokens·head·responses·403",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·z3mvmr·accesstokens·head·responses·403"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "InternalServerError": {
+       "$id": "184",
+       "extensions": {
+        "$id": "185",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·g16y7l·accesstokens·head·responses·500",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·g16y7l·accesstokens·head·responses·500"
+         ]
+        }
+       },
+       "isNullable": true
+      }
+     },
+     "defaultResponse": {
+      "$id": "186",
+      "isNullable": true
+     },
+     "returnType": {
+      "$id": "187",
+      "isNullable": true
+     },
+     "summary": "Tests an Access Token",
+     "requestContentType": "application/json; charset=utf-8",
+     "responseContentTypes": [
+      "application/json"
+     ],
+     "extensions": {
+      "servers": []
+     },
+     "deprecated": false,
+     "hidden": false
+    },
+    {
+     "$id": "188",
+     "parameters": [
+      {
+       "$id": "189",
+       "location": "body",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "190",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "191",
+        "fixed": false
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·9y1o3w·accesstokens·post·requestbody",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/requestBodies/paths·9y1o3w·accesstokens·post·requestbody"
+         ]
+        }
+       },
+       "isRequired": false,
+       "isConstant": false,
+       "name": {
+        "$id": "192",
+        "fixed": false,
+        "raw": "body"
+       },
+       "serializedName": "body",
+       "modelType": {
+        "$ref": "2"
+       }
+      }
+     ],
+     "name": {
+      "$id": "193",
+      "fixed": false,
+      "raw": "CreateAccessToken"
+     },
+     "group": {
+      "$id": "194",
+      "fixed": false,
+      "raw": ""
+     },
+     "serializedName": "CreateAccessToken",
+     "url": "/accessTokens",
+     "isAbsoluteUrl": false,
+     "httpMethod": "post",
+     "responses": {
+      "OK": {
+       "$id": "195",
+       "body": {
+        "$id": "196",
+        "$type": "PrimaryType",
+        "knownPrimaryType": "string",
+        "name": {
+         "$id": "197",
+         "fixed": false,
+         "raw": "String"
+        },
+        "deprecated": false
+       },
+       "extensions": {
+        "$id": "198",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·5jhcxd·accesstokens·post·responses·200",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·5jhcxd·accesstokens·post·responses·200"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "BadRequest": {
+       "$id": "199",
+       "extensions": {
+        "$id": "200",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·zyxa2i·accesstokens·post·responses·400",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·zyxa2i·accesstokens·post·responses·400"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "InternalServerError": {
+       "$id": "201",
+       "extensions": {
+        "$id": "202",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·gkywzh·accesstokens·post·responses·500",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·gkywzh·accesstokens·post·responses·500"
+         ]
+        }
+       },
+       "isNullable": true
+      }
+     },
+     "defaultResponse": {
+      "$id": "203",
+      "isNullable": true
+     },
+     "returnType": {
+      "$id": "204",
+      "body": {
+       "$ref": "196"
+      },
+      "isNullable": true
+     },
+     "summary": "Creates an Access Token",
+     "requestContentType": "application/json; charset=utf-8",
+     "responseContentTypes": [
+      "application/json"
+     ],
+     "extensions": {
+      "servers": []
+     },
+     "deprecated": false,
+     "hidden": false
+    },
+    {
+     "$id": "205",
+     "parameters": [
+      {
+       "$id": "206",
+       "clientProperty": {
+        "$ref": "116"
+       },
+       "location": "query",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "207",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "208",
+        "fixed": false
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·nkseku·users·head·parameters·0",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/parameters/paths·nkseku·users·head·parameters·0"
+         ]
+        },
+        "x-ms-parameter-location": "method"
+       },
+       "isRequired": false,
+       "isConstant": false,
+       "name": {
+        "$id": "209",
+        "fixed": false,
+        "raw": "email"
+       },
+       "serializedName": "email",
+       "modelType": {
+        "$id": "210",
+        "$type": "PrimaryType",
+        "knownPrimaryType": "string",
+        "name": {
+         "$id": "211",
+         "fixed": false,
+         "raw": "String"
+        },
+        "deprecated": false
+       }
+      }
+     ],
+     "name": {
+      "$id": "212",
+      "fixed": false,
+      "raw": "QueryUsers"
+     },
+     "group": {
+      "$id": "213",
+      "fixed": false,
+      "raw": ""
+     },
+     "serializedName": "QueryUsers",
+     "url": "/users",
+     "isAbsoluteUrl": false,
+     "httpMethod": "head",
+     "responses": {
+      "NoContent": {
+       "$id": "214",
+       "extensions": {
+        "$id": "215",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·11mj378·users·head·responses·204",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·11mj378·users·head·responses·204"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "BadRequest": {
+       "$id": "216",
+       "extensions": {
+        "$id": "217",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·1rostbe·users·head·responses·400",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·1rostbe·users·head·responses·400"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "Unauthorized": {
+       "$id": "218",
+       "extensions": {
+        "$id": "219",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·19i14aw·users·head·responses·401",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·19i14aw·users·head·responses·401"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "Forbidden": {
+       "$id": "220",
+       "extensions": {
+        "$id": "221",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·1pupomj·users·head·responses·403",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·1pupomj·users·head·responses·403"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "InternalServerError": {
+       "$id": "222",
+       "extensions": {
+        "$id": "223",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·imfyd2·users·head·responses·500",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·imfyd2·users·head·responses·500"
+         ]
+        }
+       },
+       "isNullable": true
+      }
+     },
+     "defaultResponse": {
+      "$id": "224",
+      "isNullable": true
+     },
+     "returnType": {
+      "$id": "225",
+      "isNullable": true
+     },
+     "summary": "Queries a User",
+     "requestContentType": "application/json; charset=utf-8",
+     "responseContentTypes": [
+      "application/json"
+     ],
+     "extensions": {
+      "servers": []
+     },
+     "deprecated": false,
+     "hidden": false
+    },
+    {
+     "$id": "226",
+     "parameters": [
+      {
+       "$id": "227",
+       "clientProperty": {
+        "$ref": "122"
+       },
+       "location": "query",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "228",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "229",
+        "fixed": false
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·5iwl8j·users·get·parameters·0",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/parameters/paths·5iwl8j·users·get·parameters·0"
+         ]
+        },
+        "x-ms-parameter-location": "method"
+       },
+       "isRequired": false,
+       "isConstant": false,
+       "name": {
+        "$id": "230",
+        "fixed": false,
+        "raw": "Skip"
+       },
+       "serializedName": "Skip",
+       "modelType": {
+        "$id": "231",
+        "$type": "PrimaryType",
+        "format": "int32",
+        "knownPrimaryType": "int",
+        "name": {
+         "$id": "232",
+         "fixed": false,
+         "raw": "Int"
+        },
+        "deprecated": false
+       }
+      },
+      {
+       "$id": "233",
+       "clientProperty": {
+        "$ref": "128"
+       },
+       "location": "query",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "234",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "235",
+        "fixed": false
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·1umxab4·users·get·parameters·1",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/parameters/paths·1umxab4·users·get·parameters·1"
+         ]
+        },
+        "x-ms-parameter-location": "method"
+       },
+       "isRequired": false,
+       "isConstant": false,
+       "name": {
+        "$id": "236",
+        "fixed": false,
+        "raw": "Take"
+       },
+       "serializedName": "Take",
+       "modelType": {
+        "$id": "237",
+        "$type": "PrimaryType",
+        "format": "int32",
+        "knownPrimaryType": "int",
+        "name": {
+         "$id": "238",
+         "fixed": false,
+         "raw": "Int"
+        },
+        "deprecated": false
+       }
+      },
+      {
+       "$id": "239",
+       "clientProperty": {
+        "$ref": "134"
+       },
+       "location": "query",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "240",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "241",
+        "fixed": false
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·9ylruc·users·get·parameters·2",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/parameters/paths·9ylruc·users·get·parameters·2"
+         ]
+        },
+        "x-ms-parameter-location": "method"
+       },
+       "isRequired": false,
+       "isConstant": false,
+       "name": {
+        "$id": "242",
+        "fixed": false,
+        "raw": "SortField"
+       },
+       "serializedName": "SortField",
+       "modelType": {
+        "$id": "243",
+        "$type": "PrimaryType",
+        "knownPrimaryType": "string",
+        "name": {
+         "$id": "244",
+         "fixed": false,
+         "raw": "String"
+        },
+        "deprecated": false
+       }
+      },
+      {
+       "$id": "245",
+       "clientProperty": {
+        "$ref": "140"
+       },
+       "location": "query",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "246",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "247",
+        "fixed": false
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·s1hyhz·users·get·parameters·3",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/parameters/paths·s1hyhz·users·get·parameters·3"
+         ]
+        },
+        "x-ms-parameter-location": "method"
+       },
+       "isRequired": false,
+       "isConstant": false,
+       "name": {
+        "$id": "248",
+        "fixed": false,
+        "raw": "SortDirection"
+       },
+       "serializedName": "SortDirection",
+       "modelType": {
+        "$id": "249",
+        "$type": "EnumType",
+        "values": [
+         {
+          "$id": "250",
+          "name": "Ascending",
+          "serializedName": "Ascending"
+         },
+         {
+          "$id": "251",
+          "name": "Descending",
+          "serializedName": "Descending"
+         }
+        ],
+        "oldModelAsString": false,
+        "modelAsString": true,
+        "underlyingType": {
+         "$id": "252",
+         "$type": "PrimaryType",
+         "knownPrimaryType": "string",
+         "name": {
+          "$id": "253",
+          "fixed": false,
+          "raw": "String"
+         },
+         "deprecated": false
+        },
+        "name": {
+         "$id": "254",
+         "fixed": false,
+         "raw": ""
+        },
+        "deprecated": false
+       }
+      },
+      {
+       "$id": "255",
+       "clientProperty": {
+        "$ref": "150"
+       },
+       "location": "query",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "256",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "257",
+        "fixed": false
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·1n6sqyx·users·get·parameters·4",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/parameters/paths·1n6sqyx·users·get·parameters·4"
+         ]
+        },
+        "x-ms-parameter-location": "method"
+       },
+       "isRequired": false,
+       "isConstant": false,
+       "name": {
+        "$id": "258",
+        "fixed": false,
+        "raw": "Search"
+       },
+       "serializedName": "Search",
+       "modelType": {
+        "$id": "259",
+        "$type": "PrimaryType",
+        "knownPrimaryType": "string",
+        "name": {
+         "$id": "260",
+         "fixed": false,
+         "raw": "String"
+        },
+        "deprecated": false
+       }
+      }
+     ],
+     "name": {
+      "$id": "261",
+      "fixed": false,
+      "raw": "GetUsers"
+     },
+     "group": {
+      "$id": "262",
+      "fixed": false,
+      "raw": ""
+     },
+     "serializedName": "GetUsers",
+     "url": "/users",
+     "isAbsoluteUrl": false,
+     "httpMethod": "get",
+     "responses": {
+      "OK": {
+       "$id": "263",
+       "body": {
+        "$id": "264",
+        "$type": "SequenceType",
+        "elementType": {
+         "$ref": "16"
+        },
+        "name": {
+         "$id": "265",
+         "fixed": false
+        },
+        "deprecated": false
+       },
+       "headers": {
+        "$ref": "108"
+       },
+       "extensions": {
+        "$id": "266",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·11eatsj·users·get·responses·200",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·11eatsj·users·get·responses·200"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "BadRequest": {
+       "$id": "267",
+       "headers": {
+        "$ref": "108"
+       },
+       "extensions": {
+        "$id": "268",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·1o1kjwr·users·get·responses·400",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·1o1kjwr·users·get·responses·400"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "Unauthorized": {
+       "$id": "269",
+       "headers": {
+        "$ref": "108"
+       },
+       "extensions": {
+        "$id": "270",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·nroc2h·users·get·responses·401",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·nroc2h·users·get·responses·401"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "Forbidden": {
+       "$id": "271",
+       "headers": {
+        "$ref": "108"
+       },
+       "extensions": {
+        "$id": "272",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·1j92l7u·users·get·responses·403",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·1j92l7u·users·get·responses·403"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "InternalServerError": {
+       "$id": "273",
+       "headers": {
+        "$ref": "108"
+       },
+       "extensions": {
+        "$id": "274",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·h0alpm·users·get·responses·500",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·h0alpm·users·get·responses·500"
+         ]
+        }
+       },
+       "isNullable": true
+      }
+     },
+     "defaultResponse": {
+      "$id": "275",
+      "isNullable": true
+     },
+     "returnType": {
+      "$id": "276",
+      "body": {
+       "$ref": "264"
+      },
+      "headers": {
+       "$ref": "108"
+      },
+      "isNullable": true
+     },
+     "summary": "Gets a list of Users",
+     "requestContentType": "application/json; charset=utf-8",
+     "responseContentTypes": [
+      "application/json"
+     ],
+     "extensions": {
+      "servers": []
+     },
+     "deprecated": false,
+     "hidden": false
+    },
+    {
+     "$id": "277",
+     "parameters": [
+      {
+       "$id": "278",
+       "location": "body",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "279",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "280",
+        "fixed": false
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·1u4esmm·users·post·requestbody",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/requestBodies/paths·1u4esmm·users·post·requestbody"
+         ]
+        }
+       },
+       "isRequired": false,
+       "isConstant": false,
+       "name": {
+        "$id": "281",
+        "fixed": false,
+        "raw": "body"
+       },
+       "serializedName": "body",
+       "modelType": {
+        "$ref": "36"
+       }
+      }
+     ],
+     "name": {
+      "$id": "282",
+      "fixed": false,
+      "raw": "CreateUser"
+     },
+     "group": {
+      "$id": "283",
+      "fixed": false,
+      "raw": ""
+     },
+     "serializedName": "CreateUser",
+     "url": "/users",
+     "isAbsoluteUrl": false,
+     "httpMethod": "post",
+     "responses": {
+      "OK": {
+       "$id": "284",
+       "body": {
+        "$ref": "56"
+       },
+       "extensions": {
+        "$id": "285",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·1e4srdb·users·post·responses·200",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·1e4srdb·users·post·responses·200"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "BadRequest": {
+       "$id": "286",
+       "extensions": {
+        "$id": "287",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·7t56vw·users·post·responses·400",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·7t56vw·users·post·responses·400"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "Unauthorized": {
+       "$id": "288",
+       "extensions": {
+        "$id": "289",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·zsk5lv·users·post·responses·401",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·zsk5lv·users·post·responses·401"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "Forbidden": {
+       "$id": "290",
+       "extensions": {
+        "$id": "291",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·zl5rgp·users·post·responses·403",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·zl5rgp·users·post·responses·403"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "InternalServerError": {
+       "$id": "292",
+       "extensions": {
+        "$id": "293",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·wivswd·users·post·responses·500",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·wivswd·users·post·responses·500"
+         ]
+        }
+       },
+       "isNullable": true
+      }
+     },
+     "defaultResponse": {
+      "$id": "294",
+      "isNullable": true
+     },
+     "returnType": {
+      "$id": "295",
+      "body": {
+       "$ref": "56"
+      },
+      "isNullable": true
+     },
+     "summary": "Creates a User",
+     "requestContentType": "application/json; charset=utf-8",
+     "responseContentTypes": [
+      "application/json"
+     ],
+     "extensions": {
+      "servers": []
+     },
+     "deprecated": false,
+     "hidden": false
+    },
+    {
+     "$id": "296",
+     "parameters": [
+      {
+       "$id": "297",
+       "clientProperty": {
+        "$ref": "156"
+       },
+       "location": "path",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "298",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "299",
+        "fixed": false
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·beuzeb·users-id·get·parameters·0",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/parameters/paths·beuzeb·users-id·get·parameters·0"
+         ]
+        },
+        "x-ms-parameter-location": "method"
+       },
+       "isRequired": true,
+       "isConstant": false,
+       "name": {
+        "$id": "300",
+        "fixed": false,
+        "raw": "id"
+       },
+       "serializedName": "id",
+       "modelType": {
+        "$id": "301",
+        "$type": "PrimaryType",
+        "knownPrimaryType": "string",
+        "name": {
+         "$id": "302",
+         "fixed": false,
+         "raw": "String"
+        },
+        "deprecated": false
+       }
+      }
+     ],
+     "name": {
+      "$id": "303",
+      "fixed": false,
+      "raw": "GetUser"
+     },
+     "group": {
+      "$id": "304",
+      "fixed": false,
+      "raw": ""
+     },
+     "serializedName": "GetUser",
+     "url": "/users/{id}",
+     "isAbsoluteUrl": false,
+     "httpMethod": "get",
+     "responses": {
+      "OK": {
+       "$id": "305",
+       "body": {
+        "$ref": "56"
+       },
+       "extensions": {
+        "$id": "306",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·pic9hp·users-id·get·responses·200",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·pic9hp·users-id·get·responses·200"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "Unauthorized": {
+       "$id": "307",
+       "extensions": {
+        "$id": "308",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·17wbx48·users-id·get·responses·401",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·17wbx48·users-id·get·responses·401"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "Forbidden": {
+       "$id": "309",
+       "extensions": {
+        "$id": "310",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·qoia0w·users-id·get·responses·403",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·qoia0w·users-id·get·responses·403"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "NotFound": {
+       "$id": "311",
+       "extensions": {
+        "$id": "312",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·jnpvyc·users-id·get·responses·404",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·jnpvyc·users-id·get·responses·404"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "InternalServerError": {
+       "$id": "313",
+       "extensions": {
+        "$id": "314",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·1bha1sg·users-id·get·responses·500",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·1bha1sg·users-id·get·responses·500"
+         ]
+        }
+       },
+       "isNullable": true
+      }
+     },
+     "defaultResponse": {
+      "$id": "315",
+      "isNullable": true
+     },
+     "returnType": {
+      "$id": "316",
+      "body": {
+       "$ref": "56"
+      },
+      "isNullable": true
+     },
+     "summary": "Gets a User",
+     "requestContentType": "application/json; charset=utf-8",
+     "responseContentTypes": [
+      "application/json"
+     ],
+     "extensions": {
+      "servers": []
+     },
+     "deprecated": false,
+     "hidden": false
+    },
+    {
+     "$id": "317",
+     "parameters": [
+      {
+       "$id": "318",
+       "location": "body",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "319",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "320",
+        "fixed": false
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·1ko9q4u·users-id·put·requestbody",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/requestBodies/paths·1ko9q4u·users-id·put·requestbody"
+         ]
+        }
+       },
+       "isRequired": false,
+       "isConstant": false,
+       "name": {
+        "$id": "321",
+        "fixed": false,
+        "raw": "body"
+       },
+       "serializedName": "body",
+       "modelType": {
+        "$ref": "94"
+       }
+      },
+      {
+       "$id": "322",
+       "clientProperty": {
+        "$ref": "156"
+       },
+       "location": "path",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "323",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "324",
+        "fixed": false
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·1r4fyij·users-id·put·parameters·0",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/parameters/paths·1r4fyij·users-id·put·parameters·0"
+         ]
+        },
+        "x-ms-parameter-location": "method"
+       },
+       "isRequired": true,
+       "isConstant": false,
+       "name": {
+        "$id": "325",
+        "fixed": false,
+        "raw": "id"
+       },
+       "serializedName": "id",
+       "modelType": {
+        "$id": "326",
+        "$type": "PrimaryType",
+        "knownPrimaryType": "string",
+        "name": {
+         "$id": "327",
+         "fixed": false,
+         "raw": "String"
+        },
+        "deprecated": false
+       }
+      }
+     ],
+     "name": {
+      "$id": "328",
+      "fixed": false,
+      "raw": "ReplaceUser"
+     },
+     "group": {
+      "$id": "329",
+      "fixed": false,
+      "raw": ""
+     },
+     "serializedName": "ReplaceUser",
+     "url": "/users/{id}",
+     "isAbsoluteUrl": false,
+     "httpMethod": "put",
+     "responses": {
+      "OK": {
+       "$id": "330",
+       "body": {
+        "$ref": "56"
+       },
+       "extensions": {
+        "$id": "331",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·ihlzzq·users-id·put·responses·200",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·ihlzzq·users-id·put·responses·200"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "BadRequest": {
+       "$id": "332",
+       "extensions": {
+        "$id": "333",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·16y5h5·users-id·put·responses·400",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·16y5h5·users-id·put·responses·400"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "Unauthorized": {
+       "$id": "334",
+       "extensions": {
+        "$id": "335",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·1hj57ea·users-id·put·responses·401",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·1hj57ea·users-id·put·responses·401"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "Forbidden": {
+       "$id": "336",
+       "extensions": {
+        "$id": "337",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·1vubytn·users-id·put·responses·403",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·1vubytn·users-id·put·responses·403"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "NotFound": {
+       "$id": "338",
+       "extensions": {
+        "$id": "339",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·17rwtj3·users-id·put·responses·404",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·17rwtj3·users-id·put·responses·404"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "InternalServerError": {
+       "$id": "340",
+       "extensions": {
+        "$id": "341",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·sy4w4·users-id·put·responses·500",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·sy4w4·users-id·put·responses·500"
+         ]
+        }
+       },
+       "isNullable": true
+      }
+     },
+     "defaultResponse": {
+      "$id": "342",
+      "isNullable": true
+     },
+     "returnType": {
+      "$id": "343",
+      "body": {
+       "$ref": "56"
+      },
+      "isNullable": true
+     },
+     "summary": "Replaces a User",
+     "requestContentType": "application/json; charset=utf-8",
+     "responseContentTypes": [
+      "application/json"
+     ],
+     "extensions": {
+      "servers": []
+     },
+     "deprecated": false,
+     "hidden": false
+    },
+    {
+     "$id": "344",
+     "parameters": [
+      {
+       "$id": "345",
+       "clientProperty": {
+        "$ref": "156"
+       },
+       "location": "path",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "346",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "347",
+        "fixed": false
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·mghx75·users-id·delete·parameters·0",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/parameters/paths·mghx75·users-id·delete·parameters·0"
+         ]
+        },
+        "x-ms-parameter-location": "method"
+       },
+       "isRequired": true,
+       "isConstant": false,
+       "name": {
+        "$id": "348",
+        "fixed": false,
+        "raw": "id"
+       },
+       "serializedName": "id",
+       "modelType": {
+        "$id": "349",
+        "$type": "PrimaryType",
+        "knownPrimaryType": "string",
+        "name": {
+         "$id": "350",
+         "fixed": false,
+         "raw": "String"
+        },
+        "deprecated": false
+       }
+      }
+     ],
+     "name": {
+      "$id": "351",
+      "fixed": false,
+      "raw": "Delete"
+     },
+     "group": {
+      "$id": "352",
+      "fixed": false,
+      "raw": ""
+     },
+     "serializedName": "Delete",
+     "url": "/users/{id}",
+     "isAbsoluteUrl": false,
+     "httpMethod": "delete",
+     "responses": {
+      "NoContent": {
+       "$id": "353",
+       "extensions": {
+        "$id": "354",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·13zvmjm·users-id·delete·responses·204",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·13zvmjm·users-id·delete·responses·204"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "Unauthorized": {
+       "$id": "355",
+       "extensions": {
+        "$id": "356",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·16gg0su·users-id·delete·responses·401",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·16gg0su·users-id·delete·responses·401"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "Forbidden": {
+       "$id": "357",
+       "extensions": {
+        "$id": "358",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·1affbmv·users-id·delete·responses·403",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·1affbmv·users-id·delete·responses·403"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "NotFound": {
+       "$id": "359",
+       "extensions": {
+        "$id": "360",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·1h5e06w·users-id·delete·responses·404",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·1h5e06w·users-id·delete·responses·404"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "InternalServerError": {
+       "$id": "361",
+       "extensions": {
+        "$id": "362",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "v1"
+         ],
+         "filename": [
+          "mem:///124?oai3.shaken.json"
+         ],
+         "name": "paths·18ny6ij·users-id·delete·responses·500",
+         "originalLocations": [
+          "file:///C:/Repositories/world-warriors-arena-api/WWA.RestApi/wwwroot/docs/swashbuckle/spec/v1.json#/components/responses/paths·18ny6ij·users-id·delete·responses·500"
+         ]
+        }
+       },
+       "isNullable": true
+      }
+     },
+     "defaultResponse": {
+      "$id": "363",
+      "isNullable": true
+     },
+     "returnType": {
+      "$id": "364",
+      "isNullable": true
+     },
+     "summary": "Deletes a User",
+     "requestContentType": "application/json; charset=utf-8",
+     "responseContentTypes": [
+      "application/json"
+     ],
+     "extensions": {
+      "servers": []
+     },
+     "deprecated": false,
+     "hidden": false
+    }
+   ],
+   "name": {
+    "$id": "365",
+    "fixed": false,
+    "raw": ""
+   },
+   "typeName": {
+    "$id": "366",
+    "fixed": false
+   },
+   "nameForProperty": "WorldWarriorsArenaRESTAPI"
+  }
+ ]
+}
