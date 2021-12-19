@@ -14,7 +14,7 @@ namespace WWA.Grains
     public class Repository<TEntity> : Grain<TEntity> where TEntity : Entity
     {
         private string _collectionName { get; set; }
-        private IMongoCollection<TEntity> _collection { get; set; }
+        public IMongoCollection<TEntity> _collection { get; set; }
 
         protected FilterDefinitionBuilder<TEntity> _filter => Builders<TEntity>.Filter;
         protected IndexKeysDefinitionBuilder<TEntity> _index => Builders<TEntity>.IndexKeys;

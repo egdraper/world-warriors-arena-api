@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
 using Orleans;
 using Orleans.Runtime;
 using System;
 using System.Threading.Tasks;
+using WWA.GrainInterfaces.Models;
 using WWA.Grains.Constants;
 using WWA.Grains.Games.Entities;
 
@@ -13,7 +16,7 @@ namespace WWA.Grains.Games
     public interface IGameGrain : IGrainWithStringKey
     {
         Task<GameState> GetGameAsync();
-        Task<GameState> UpdateGameAsync(JsonPatchDocument<GameState> gameStateOperations);
+        Task<GameState> UpdateGameAsync(string userId, GameUpdateModel gameUpdateModel);
         Task DeleteGameAsync();
     }
 
@@ -43,8 +46,10 @@ namespace WWA.Grains.Games
             if (_game.State.Id == null)
             {
                 Game game = await _gameRepository.GetGameAsync(primaryKey);
-                _game.State = _mapper.Map<GameState>(game);
+                _mapper.Map(game, _game.State);
+                _game.State.Id = primaryKey;
             }
+            _game.State.DateActive = DateTime.UtcNow;
             await _game.WriteStateAsync();
             await base.OnActivateAsync();
             return;
@@ -52,26 +57,20 @@ namespace WWA.Grains.Games
 
         public Task<GameState> GetGameAsync()
         {
-            if (State == null)
+            if (_game.State == null)
             {
                 throw new Exception($"Unable to load Game with id: {this.GetPrimaryKeyString()}");
             }
             return Task.FromResult(_game.State);
         }
 
-        public Task<GameState> UpdateGameAsync(JsonPatchDocument<GameState> gameStateOperations)
+        public Task<GameState> UpdateGameAsync(string userId, GameUpdateModel gameUpdateModel)
         {
-            GameState game = _game.State;
-            try
+            if (userId != _game.State.OwnedBy)
             {
-                gameStateOperations.ApplyTo(game);
+                throw new Exception($"User '{userId}' does not have access to modify this game");
             }
-            catch
-            {
-                throw;
-            }
-
-            _game.State = game;
+            _mapper.Map(gameUpdateModel, _game.State);
             _game.State.DateModified = DateTime.UtcNow;
             _game.WriteStateAsync();
 

@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using Orleans;
+using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -12,6 +15,11 @@ using WWA.RestApi.ViewModels.Games;
 
 namespace WWA.RestApi.Controllers
 {
+
+    [Authorize]
+    [Route("games")]
+    [ApiController]
+    [SwaggerTag]
     public class GamesController : BaseController
     {
 
@@ -81,7 +89,6 @@ namespace WWA.RestApi.Controllers
         {
             var gameService = _clusterClient.GetGrain<IGameService>(Guid.Empty);
             var gameModel = _mapper.Map<GameModel>(gameCreateViewModel);
-            gameModel.CreatedBy = UserId;
             var createdGame = await gameService.CreateGameAsync(UserId, gameModel);
 
             return Created($"/games/{createdGame.Id}", _mapper.Map<GameReadViewModel>(createdGame));
@@ -93,10 +100,22 @@ namespace WWA.RestApi.Controllers
             [FromBody] JsonPatchDocument<GameUpdateViewModel> gameUpdateOperations)
         {
             var gameService = _clusterClient.GetGrain<IGameService>(Guid.Empty);
-            var gameModelOperations = _mapper.Map<JsonPatchDocument<GameModel>>(gameUpdateOperations);
-            var updatedGame = await gameService.UpdateGameAsync(UserId, id, gameModelOperations);
-
-            return Ok(_mapper.Map<GameReadViewModel>(updatedGame));
+            var gameApplyTo = _mapper.Map<GameUpdateViewModel>(await gameService.GetGameAsync(UserId, id));
+            try
+            {
+                gameUpdateOperations.ApplyTo(gameApplyTo, ModelState);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                var gameToUpdate = _mapper.Map<GameUpdateModel>(gameApplyTo);
+                var updatedGame = await gameService.UpdateGameAsync(UserId, id, gameToUpdate);
+                return Ok(_mapper.Map<GameReadViewModel>(updatedGame));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
         }
 
         [HttpDelete("{id}")]

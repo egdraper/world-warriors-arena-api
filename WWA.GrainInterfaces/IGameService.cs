@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Orleans;
 using System.Threading.Tasks;
 using WWA.GrainInterfaces.Models;
@@ -11,7 +12,7 @@ namespace WWA.GrainInterfaces
         Task<PaginatedEntityModel<GameModel>> GetGamesAsync(string userId, PaginationQueryModel paginationQuery);
         Task<GameModel> GetGameAsync(string userId, string id);
         Task<GameModel> CreateGameAsync(string userId, GameModel gameModel);
-        Task<GameModel> UpdateGameAsync(string userId, string id, JsonPatchDocument<GameModel> gameModelOperations);
+        Task<GameModel> UpdateGameAsync(string userId, string id, GameUpdateModel gameUpdateModel);
         Task DeleteGameAsync(string userId, string id);
     }
 }

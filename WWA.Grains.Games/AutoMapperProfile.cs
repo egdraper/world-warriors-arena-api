@@ -10,7 +10,9 @@ namespace WWA.Grains.Games
         {
             CreateMap<GameModel, GameState>();
             CreateMap<GameModel, Game>();
+            CreateMap<GameUpdateModel, GameState>();
             CreateMap<GameState, GameModel>();
+            CreateMap<GameState, GameUpdateModel>();
             CreateMap<GameState, Game>();
             CreateMap<Game, GameModel>();
             CreateMap<Game, GameState>();

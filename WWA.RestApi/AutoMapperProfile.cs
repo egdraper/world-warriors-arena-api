@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.JsonPatch.Operations;
 using WWA.GrainInterfaces.Models;
 using WWA.RestApi.ViewModels.CurrentContext;
 using WWA.RestApi.ViewModels.Games;
@@ -16,9 +18,10 @@ namespace WWA.RestApi
             // Games
             CreateMap<GameCreateViewModel, GameModel>()
                 .ForMember(dest => dest.Id, opt => opt.Ignore());
-            CreateMap<GameUpdateViewModel, GameModel>();
             CreateMap<GameModel, GameSummaryViewModel>();
             CreateMap<GameModel, GameReadViewModel>();
+            CreateMap<GameModel, GameUpdateViewModel>();
+            CreateMap<GameUpdateViewModel, GameUpdateModel>();
             // Users
             CreateMap<UserCreateViewModel, UserModel>()
                 .ForMember(dest => dest.Id, opt => opt.Ignore());

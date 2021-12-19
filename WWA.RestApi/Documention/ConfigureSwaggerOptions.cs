@@ -97,8 +97,9 @@ namespace WWA.RestApi.Documention
             options.ParameterFilter<ParameterStyleFilter>();
 
             // schema filters.
-            options.SchemaFilter<RemoveFalseAdditionalPropertiesForAutorestSchemaFilter>();
             options.SchemaFilter<DictionaryTypeExampleSchemaFilter>();
+            options.SchemaFilter<PatchOperationSchemaFilter>();
+            options.SchemaFilter<RemoveFalseAdditionalPropertiesForAutorestSchemaFilter>();
 
             // document filters.
             options.DocumentFilter<TagsDocumentFilter>();

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 
 namespace WWA.RestApi.ViewModels.Games
 {
@@ -6,7 +6,7 @@ namespace WWA.RestApi.ViewModels.Games
     {
         public string Id { get; set; }
         public string Name { get; set; }
-        public DateTime? DateCreated { get; set; }
-        public DateTime? DateModified { get; set; }
+        public string OwnedBy { get; set; }
+        public IEnumerable<string> Players { get; set; }
     }
 }

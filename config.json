@@ -9,6 +9,7 @@
     "connectionString": "mongodb://localhost:27017/wwa?readPreference=primary&ssl=false"
   },
   "orleans": {
-    "clusterId": "wwa"
+    "clusterId": "wwa",
+    "instanceId": 0
   }
 }

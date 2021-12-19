@@ -45,7 +45,7 @@ namespace WWA.Grains.Games
         public Task<PaginatedEntityModel<Game>> ListGamesPagedAsync(string userId, PaginationQueryModel paginationQuery)
         {
             var filter = string.IsNullOrEmpty(paginationQuery.Search)
-                ? _filter.In("Players", userId)
+                ? _filter.AnyEq("Players", userId)
                 : _filter.And(_filter.In("Players", userId), _filter.Text(paginationQuery.Search));
             SortDefinition<Game> sort = null;
             if (!string.IsNullOrEmpty(paginationQuery.SortField))

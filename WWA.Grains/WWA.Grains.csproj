@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-	<PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+	<PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
 	<PackageReference Include="AutoMapper" Version="10.1.1" />
 	<PackageReference Include="Common.Logging" Version="3.4.1" />
 	<PackageReference Include="Common.Logging.Serilog" Version="4.4.0" />
@@ -16,9 +16,9 @@
     <PackageReference Include="Microsoft.Orleans.Core.Abstractions" Version="3.5.1" />
     <PackageReference Include="Microsoft.Orleans.Runtime.Abstractions" Version="3.5.1" />
 	<PackageReference Include="Serilog.AspNetCore" Version="4.1.0" />
-	<PackageReference Include="Serilog.Extensions.Hosting" Version="4.1.2" />
+	<PackageReference Include="Serilog.Extensions.Hosting" Version="4.2.0" />
 	<PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
-	<PackageReference Include="Serilog.Sinks.Console" Version="4.0.0" />
+	<PackageReference Include="Serilog.Sinks.Console" Version="4.0.1" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using Orleans;
 using System;
 using System.Collections.Generic;
@@ -64,6 +66,7 @@ namespace WWA.Grains.Games
         {
             gameModel.CreatedBy = userId;
             gameModel.OwnedBy = userId;
+            gameModel.Players = new List<string> { userId };
 
             int count = await _gameRepository.ExistsAsync(gameModel.OwnedBy, gameModel.Name);
             if (count > 0)
@@ -79,14 +82,12 @@ namespace WWA.Grains.Games
             return _mapper.Map<GameModel>(newGameModel);
         }
 
-        public async Task<GameModel> UpdateGameAsync(string userId, string id, JsonPatchDocument<GameModel> gameModelOperations)
+        public async Task<GameModel> UpdateGameAsync(string userId, string id, GameUpdateModel gameUpdateModel)
         {
-            var gameStateOperations = _mapper.Map<JsonPatchDocument<GameState>>(gameModelOperations);
-
             var gameGrain = _clusterClient.GetGrain<IGameGrain>(id);
-            var newGameModel = await gameGrain.UpdateGameAsync(gameStateOperations);
+            var newGameState = await gameGrain.UpdateGameAsync(userId, gameUpdateModel);
 
-            return _mapper.Map<GameModel>(newGameModel);
+            return _mapper.Map<GameModel>(newGameState);
         }
 
         public async Task DeleteGameAsync(string userId, string id)

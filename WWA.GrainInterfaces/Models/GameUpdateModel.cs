@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using WWA.Grains.Entities;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace WWA.Grains.Games.Entities
+namespace WWA.GrainInterfaces.Models
 {
-    public class GameState : TrackedEntity
+    public class GameUpdateModel
     {
         public string Name { get; set; }
-        public string CreatedBy { get; set; }
         public string OwnedBy { get; set; }
         public IEnumerable<string> Players { get; set; }
-        public DateTime DateActive { get; set; }
     }
 }
