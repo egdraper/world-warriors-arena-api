@@ -9,13 +9,13 @@ using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 using Orleans;
 using Orleans.Configuration;
-using Orleans.Providers.MongoDB.Configuration;
 using Serilog;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
@@ -26,40 +26,30 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using WWA.Configuration;
+using WWA.Grains.Games;
+using WWA.Grains.Mongo;
+using WWA.Grains.Users;
 using WWA.RestApi.Documention;
-using WWA.RestApi.HostedServices;
-using ILogger = Microsoft.Extensions.Logging.ILogger;
 
 namespace WWA.RestApi
 {
     public class Startup
     {
-        private readonly ILoggerFactory _loggerFactory;
-        private readonly ILogger _logger;
         
         public IConfiguration Configuration;
         public static ApiConfig Config;
         
-        public Startup(IConfiguration configuration, ILoggerFactory loggerFactory)
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            _loggerFactory = loggerFactory;
-            _logger = _loggerFactory.CreateLogger<Startup>();
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
-            _logger.LogInformation("Configuring services...");
-
-            services.AddCors();
-            services.AddControllers();
-
             services.AddOptions();
 
             services.Configure<ApiConfig>(Configuration);
             Config = Configuration.Get<ApiConfig>();
-
-            services.AddAutoMapper(typeof(AutoMapperProfile));
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer("WWA", options =>
@@ -109,14 +99,22 @@ namespace WWA.RestApi
                     options.OutputFormatters.RemoveType<TextOutputFormatter>();
                     options.OutputFormatters.RemoveType<HttpNoContentOutputFormatter>();
                 })
+                .AddNewtonsoftJson(options =>
+                {
+                    options.SerializerSettings.ContractResolver =
+                        new CamelCasePropertyNamesContractResolver();
+                    options.SerializerSettings.Converters.Add(new StringEnumConverter
+                    {
+                        NamingStrategy = new CamelCaseNamingStrategy()
+                    });
+                })
                 .AddJsonOptions(options =>
                 {
                     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
                     options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-                    options.JsonSerializerOptions.IgnoreNullValues = true;
+                    options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
                     options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
-                })
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+                });
 
             services
                 .AddMvcCore(options =>
@@ -125,23 +123,81 @@ namespace WWA.RestApi
                     options.RespectBrowserAcceptHeader = true;
                 });
 
+            services.AddCors();
+            services.AddControllers(options =>
+            {
+                options.InputFormatters.Insert(0, GetJsonPatchInputFormatter());
+            });
+
+            services.AddAutoMapper(new Type[]
+            {
+                typeof(AutoMapperProfile),
+                typeof(Grains.Games.AutoMapperProfile),
+                typeof(Grains.Users.AutoMapperProfile)
+            });
+
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
             services.AddSwaggerGen();
-            services.AddHostedService<ClusterClientService>();
+
+            services.Configure<ClusterMembershipOptions>(options =>
+            {
+                options.DefunctSiloCleanupPeriod = TimeSpan.FromHours(1);
+                options.DefunctSiloExpiration = TimeSpan.FromDays(1);
+            });
+            services.Configure<ClusterOptions>(options =>
+            {
+                options.ClusterId = Configuration.GetValue<string>("orleans:clusterId");
+                options.ServiceId = "wwa.silo";
+            });
+            services.Configure<ConsoleLifetimeOptions>(options =>
+            {
+                options.SuppressStatusMessages = true;
+            });
+            services.Configure<SiloOptions>(options =>
+            {
+                options.SiloName = Environment.MachineName;
+            });
+            services.Configure<MongoConfiguration>(Configuration.GetSection("mongo"));
+            services.AddHttpClient();
+        }
+
+        private static NewtonsoftJsonPatchInputFormatter GetJsonPatchInputFormatter()
+        {
+            var builder = new ServiceCollection()
+                .AddLogging()
+                .AddMvc()
+                .AddNewtonsoftJson()
+                .Services.BuildServiceProvider();
+
+            return builder
+                .GetRequiredService<IOptions<MvcOptions>>()
+                .Value
+                .InputFormatters
+                .OfType<NewtonsoftJsonPatchInputFormatter>()
+                .First();
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
-            _logger.LogInformation("Configuring dependency injection...");
 
             builder.RegisterInstance(Configuration).AsImplementedInterfaces();
+
+            // Grains
+            builder.RegisterType<GameService>().AsSelf();
+            builder.RegisterType<GameGrain>().AsSelf();
+            builder.RegisterType<UserService>().AsSelf();
+            builder.RegisterType<UserGrain>().AsSelf();
+
+            // Repositories
+            builder.RegisterType<MongoContext>().As<IMongoContext>().SingleInstance();
+            builder.RegisterType<GameRepository>().As<IGameRepository>().SingleInstance();
+            builder.RegisterType<UserRepository>().As<IUserRepository>().SingleInstance();
 
             RegisterSingletons(builder);
         }
 
         public void Configure(IApplicationBuilder app, IHostApplicationLifetime host)
         {
-            _logger.LogInformation("Configuring application...");
 
 #if DEBUG
             app.UseDeveloperExceptionPage();
@@ -194,7 +250,6 @@ namespace WWA.RestApi
 
         private void RegisterSingletons(ContainerBuilder builder)
         {
-            _logger.LogInformation("Registering singletons...");
 
             builder
                 .Register(options => new MapperConfiguration(c =>
@@ -207,25 +262,6 @@ namespace WWA.RestApi
                 .Register(d => new Mapper(d.Resolve<AutoMapper.IConfigurationProvider>(), d.Resolve<ILifetimeScope>().Resolve))
                 .As<IMapper>()
                 .InstancePerLifetimeScope();
-            builder.Register(context =>
-            {
-                var mongoUrlBuilder = new MongoUrlBuilder(Configuration.GetValue<string>("mongo:connectionString"));
-                var logger = context.Resolve<ILogger<Startup>>();
-                var clusterClient = new ClientBuilder()
-                    .Configure<ClusterOptions>(options =>
-                    {
-                        options.ClusterId = Configuration.GetValue<string>("orleans:clusterId");
-                        options.ServiceId = "restapi";
-                    })
-                    .UseMongoDBClient(Configuration.GetValue<string>("mongo:connectionString"))
-                    .UseMongoDBClustering(options =>
-                    {
-                        options.DatabaseName = mongoUrlBuilder.DatabaseName ?? "wwa";
-                        options.Strategy = MongoDBMembershipStrategy.SingleDocument;
-                    })
-                    .Build();
-                return clusterClient;
-            }).As<IClusterClient>().SingleInstance();
         }
     }
 }

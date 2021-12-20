@@ -16,11 +16,11 @@ using WWA.RestApi.ViewModels.AccessTokens;
 
 namespace WWA.RestApi.Controllers
 {
-    [AllowAnonymous]
+    [Authorize]
     [Route("accessTokens")]
     [ApiController]
     [SwaggerTag("API for generating tokens used to authenticate other operations.")]
-    public class AccessTokensController : Controller
+    public class AccessTokensController : BaseController
     {
         private IClusterClient _clusterClient;
         private IdentityConfiguration _identityConfiguration;
@@ -34,13 +34,13 @@ namespace WWA.RestApi.Controllers
             _identityConfiguration = config.Identity;
         }
 
-        [Authorize]
         [HttpHead]
         public ActionResult TestAccessToken()
         {
             return NoContent();
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public async Task<ActionResult<string>> CreateAccessToken(
             [FromBody] AccessTokenCreateViewModel accessTokenCreateViewModel)
@@ -54,7 +54,7 @@ namespace WWA.RestApi.Controllers
                                 accessTokenCreateViewModel.Email,
                                 accessTokenCreateViewModel.Password);
             }
-            catch (Exception ex)
+            catch
             {
                 throw;
             }
@@ -66,13 +66,14 @@ namespace WWA.RestApi.Controllers
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
+                    new Claim(ClaimTypes.NameIdentifier, user.Id),
                     new Claim(ClaimTypes.Email, accessTokenCreateViewModel.Email),
                     new Claim("scope", "wwa_restapi")
                 }),
                 Issuer = _identityConfiguration.Issuer,
                 IssuedAt = DateTime.UtcNow,
                 Audience = _identityConfiguration.Audience,
-                Expires = DateTime.UtcNow.AddMinutes(_identityConfiguration.TokenExpiryInMinutes),
+                Expires = DateTime.UtcNow.AddHours(_identityConfiguration.TokenExpiryInHours),
                 SigningCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256Signature)
             };
             var tokenHandler = new JwtSecurityTokenHandler();

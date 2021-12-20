@@ -3,7 +3,7 @@ using Orleans;
 using System;
 using System.Threading.Tasks;
 
-namespace WWA.Silo.Filters
+namespace WWA.RestApi.Filters
 {
     public class LoggingCallFilter : IIncomingGrainCallFilter
     {

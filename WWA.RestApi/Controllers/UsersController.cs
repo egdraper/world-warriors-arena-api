@@ -11,13 +11,13 @@ using WWA.GrainInterfaces;
 using WWA.GrainInterfaces.Models;
 using WWA.RestApi.ViewModels.Users;
 
-namespace WWA.WebApi.Controllers
+namespace WWA.RestApi.Controllers
 {
     [Authorize]
     [Route("users")]
     [ApiController]
     [SwaggerTag("Admin API for managing Users. Will be moved or hidden at a future date.")]
-    public class UsersController : Controller
+    public class UsersController : BaseController
     {
         private readonly IClusterClient _clusterClient;
         private readonly ILogger<UsersController> _logger;
@@ -79,7 +79,6 @@ namespace WWA.WebApi.Controllers
             return Ok(_mapper.Map<UserReadViewModel>(user));
         }
 
-        [AllowAnonymous]
         [HttpPost]
         public async Task<ActionResult<UserReadViewModel>> CreateUser(
             [FromBody] UserCreateViewModel userCreateViewModel)
@@ -105,7 +104,7 @@ namespace WWA.WebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(
+        public async Task<ActionResult> DeleteUser(
             [FromRoute] string id)
         {
             var userService = _clusterClient.GetGrain<IUserService>(Guid.Empty);
