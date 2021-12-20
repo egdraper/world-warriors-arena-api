@@ -27,6 +27,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using WWA.Configuration;
 using WWA.Grains.Games;
+using WWA.Grains.Maps;
 using WWA.Grains.Mongo;
 using WWA.Grains.Users;
 using WWA.RestApi.Documention;
@@ -133,6 +134,7 @@ namespace WWA.RestApi
             {
                 typeof(AutoMapperProfile),
                 typeof(Grains.Games.AutoMapperProfile),
+                typeof(Grains.Maps.AutoMapperProfile),
                 typeof(Grains.Users.AutoMapperProfile)
             });
 
@@ -185,12 +187,15 @@ namespace WWA.RestApi
             // Grains
             builder.RegisterType<GameService>().AsSelf();
             builder.RegisterType<GameGrain>().AsSelf();
+            builder.RegisterType<MapService>().AsSelf();
+            builder.RegisterType<MapGrain>().AsSelf();
             builder.RegisterType<UserService>().AsSelf();
             builder.RegisterType<UserGrain>().AsSelf();
 
             // Repositories
             builder.RegisterType<MongoContext>().As<IMongoContext>().SingleInstance();
             builder.RegisterType<GameRepository>().As<IGameRepository>().SingleInstance();
+            builder.RegisterType<MapRepository>().As<IMapRepository>().SingleInstance();
             builder.RegisterType<UserRepository>().As<IUserRepository>().SingleInstance();
 
             RegisterSingletons(builder);

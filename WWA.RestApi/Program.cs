@@ -22,6 +22,7 @@ using System.Net;
 using System.Threading.Tasks;
 using WWA.Grains.Constants;
 using WWA.Grains.Games;
+using WWA.Grains.Maps;
 using WWA.Grains.Users;
 using WWA.RestApi.Filters;
 
@@ -132,6 +133,8 @@ namespace WWA.RestApi
                         parts
                             .AddApplicationPart(typeof(GameService).Assembly)
                             .AddApplicationPart(typeof(GameGrain).Assembly)
+                            .AddApplicationPart(typeof(MapService).Assembly)
+                            .AddApplicationPart(typeof(MapGrain).Assembly)
                             .AddApplicationPart(typeof(UserService).Assembly)
                             .AddApplicationPart(typeof(UserGrain).Assembly)
                             .WithReferences()
