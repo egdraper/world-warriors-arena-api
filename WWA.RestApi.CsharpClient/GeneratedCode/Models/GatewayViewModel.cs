@@ -9,20 +9,20 @@ namespace WWA.RestApi.CsharpClient.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class GatewayReadViewModel
+    public partial class GatewayViewModel
     {
         /// <summary>
-        /// Initializes a new instance of the GatewayReadViewModel class.
+        /// Initializes a new instance of the GatewayViewModel class.
         /// </summary>
-        public GatewayReadViewModel()
+        public GatewayViewModel()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the GatewayReadViewModel class.
+        /// Initializes a new instance of the GatewayViewModel class.
         /// </summary>
-        public GatewayReadViewModel(string mapId = default(string), CoordinateViewModel mapCoordinate = default(CoordinateViewModel))
+        public GatewayViewModel(string mapId = default(string), CoordinateViewModel mapCoordinate = default(CoordinateViewModel))
         {
             MapId = mapId;
             MapCoordinate = mapCoordinate;

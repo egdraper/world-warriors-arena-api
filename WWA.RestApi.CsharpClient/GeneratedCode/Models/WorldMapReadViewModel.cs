@@ -26,7 +26,7 @@ namespace WWA.RestApi.CsharpClient.Models
         /// </summary>
         /// <param name="elevations">Elevations key is an int that represents
         /// the y index of the corresponding Elevation object.</param>
-        public WorldMapReadViewModel(string id = default(string), string gameId = default(string), string name = default(string), string createdBy = default(string), System.DateTime? dateCreated = default(System.DateTime?), System.DateTime? dateModified = default(System.DateTime?), MapSizeViewModel size = default(MapSizeViewModel), IDictionary<string, ElevationReadViewModel> elevations = default(IDictionary<string, ElevationReadViewModel>))
+        public WorldMapReadViewModel(string id = default(string), string gameId = default(string), string name = default(string), string createdBy = default(string), System.DateTime? dateCreated = default(System.DateTime?), System.DateTime? dateModified = default(System.DateTime?), MapSizeViewModel size = default(MapSizeViewModel), IDictionary<string, ElevationViewModel> elevations = default(IDictionary<string, ElevationViewModel>))
         {
             Id = id;
             GameId = gameId;
@@ -84,7 +84,7 @@ namespace WWA.RestApi.CsharpClient.Models
         /// of the corresponding Elevation object.
         /// </summary>
         [JsonProperty(PropertyName = "elevations")]
-        public IDictionary<string, ElevationReadViewModel> Elevations { get; set; }
+        public IDictionary<string, ElevationViewModel> Elevations { get; set; }
 
     }
 }

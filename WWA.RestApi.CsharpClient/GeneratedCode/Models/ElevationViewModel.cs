@@ -9,20 +9,20 @@ namespace WWA.RestApi.CsharpClient.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class ElevationReadViewModel
+    public partial class ElevationViewModel
     {
         /// <summary>
-        /// Initializes a new instance of the ElevationReadViewModel class.
+        /// Initializes a new instance of the ElevationViewModel class.
         /// </summary>
-        public ElevationReadViewModel()
+        public ElevationViewModel()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ElevationReadViewModel class.
+        /// Initializes a new instance of the ElevationViewModel class.
         /// </summary>
-        public ElevationReadViewModel(SpriteLayerReadViewModel baseLayer = default(SpriteLayerReadViewModel), SpriteLayerReadViewModel terrainLayer = default(SpriteLayerReadViewModel), SpriteLayerReadViewModel structureLayer = default(SpriteLayerReadViewModel), SpriteLayerReadViewModel partitionLayer = default(SpriteLayerReadViewModel), SpriteLayerReadViewModel ceilingObjectLayer = default(SpriteLayerReadViewModel), SpriteLayerReadViewModel floorObjectLayer = default(SpriteLayerReadViewModel), SpriteLayerReadViewModel suspendedObjectLayer = default(SpriteLayerReadViewModel), SpriteLayerReadViewModel wallObjectLayer = default(SpriteLayerReadViewModel), GatewayLayerReadViewModel gatewayLayer = default(GatewayLayerReadViewModel))
+        public ElevationViewModel(SpriteLayerViewModel baseLayer = default(SpriteLayerViewModel), TerrainSpriteLayerViewModel terrainLayer = default(TerrainSpriteLayerViewModel), ObjectSpriteLayerViewModel structureLayer = default(ObjectSpriteLayerViewModel), SpriteLayerViewModel partitionLayer = default(SpriteLayerViewModel), ObjectSpriteLayerViewModel ceilingObjectLayer = default(ObjectSpriteLayerViewModel), ObjectSpriteLayerViewModel floorObjectLayer = default(ObjectSpriteLayerViewModel), ObjectSpriteLayerViewModel suspendedObjectLayer = default(ObjectSpriteLayerViewModel), ObjectSpriteLayerViewModel wallObjectLayer = default(ObjectSpriteLayerViewModel), GatewayLayerViewModel gatewayLayer = default(GatewayLayerViewModel))
         {
             BaseLayer = baseLayer;
             TerrainLayer = terrainLayer;
@@ -44,47 +44,47 @@ namespace WWA.RestApi.CsharpClient.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "baseLayer")]
-        public SpriteLayerReadViewModel BaseLayer { get; set; }
+        public SpriteLayerViewModel BaseLayer { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "terrainLayer")]
-        public SpriteLayerReadViewModel TerrainLayer { get; set; }
+        public TerrainSpriteLayerViewModel TerrainLayer { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "structureLayer")]
-        public SpriteLayerReadViewModel StructureLayer { get; set; }
+        public ObjectSpriteLayerViewModel StructureLayer { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "partitionLayer")]
-        public SpriteLayerReadViewModel PartitionLayer { get; set; }
+        public SpriteLayerViewModel PartitionLayer { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "ceilingObjectLayer")]
-        public SpriteLayerReadViewModel CeilingObjectLayer { get; set; }
+        public ObjectSpriteLayerViewModel CeilingObjectLayer { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "floorObjectLayer")]
-        public SpriteLayerReadViewModel FloorObjectLayer { get; set; }
+        public ObjectSpriteLayerViewModel FloorObjectLayer { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "suspendedObjectLayer")]
-        public SpriteLayerReadViewModel SuspendedObjectLayer { get; set; }
+        public ObjectSpriteLayerViewModel SuspendedObjectLayer { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "wallObjectLayer")]
-        public SpriteLayerReadViewModel WallObjectLayer { get; set; }
+        public ObjectSpriteLayerViewModel WallObjectLayer { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "gatewayLayer")]
-        public GatewayLayerReadViewModel GatewayLayer { get; set; }
+        public GatewayLayerViewModel GatewayLayer { get; set; }
 
     }
 }

@@ -9,25 +9,28 @@ namespace WWA.RestApi.CsharpClient.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class CellReadViewModel
+    public partial class TerrainCellViewModel
     {
         /// <summary>
-        /// Initializes a new instance of the CellReadViewModel class.
+        /// Initializes a new instance of the TerrainCellViewModel class.
         /// </summary>
-        public CellReadViewModel()
+        public TerrainCellViewModel()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the CellReadViewModel class.
+        /// Initializes a new instance of the TerrainCellViewModel class.
         /// </summary>
-        public CellReadViewModel(string spriteId = default(string), CoordinateViewModel tileLocation = default(CoordinateViewModel), int? z = default(int?), bool? isObstructed = default(bool?))
+        /// <param name="terrainType">Possible values include: 'RaisedBase',
+        /// 'RaisedNonBase', 'RecessedVoid', 'RecessedFilled'</param>
+        public TerrainCellViewModel(string spriteId = default(string), CoordinateViewModel tileLocation = default(CoordinateViewModel), int? z = default(int?), bool? isObstructed = default(bool?), string terrainType = default(string))
         {
             SpriteId = spriteId;
             TileLocation = tileLocation;
             Z = z;
             IsObstructed = isObstructed;
+            TerrainType = terrainType;
             CustomInit();
         }
 
@@ -55,6 +58,13 @@ namespace WWA.RestApi.CsharpClient.Models
         /// </summary>
         [JsonProperty(PropertyName = "isObstructed")]
         public bool? IsObstructed { get; set; }
+
+        /// <summary>
+        /// Gets or sets possible values include: 'RaisedBase',
+        /// 'RaisedNonBase', 'RecessedVoid', 'RecessedFilled'
+        /// </summary>
+        [JsonProperty(PropertyName = "terrainType")]
+        public string TerrainType { get; set; }
 
     }
 }

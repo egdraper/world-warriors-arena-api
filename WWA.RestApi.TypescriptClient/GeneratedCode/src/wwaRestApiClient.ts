@@ -248,186 +248,6 @@ class WwaRestApiClient extends WwaRestApiClientContext {
   }
 
   /**
-   * @summary Queries a Map
-   * @param gameId
-   * @param [options] The optional parameters
-   * @returns Promise<msRest.RestResponse>
-   */
-  queryWorldMaps(gameId: string, options?: Models.WwaRestApiClientQueryWorldMapsOptionalParams): Promise<msRest.RestResponse>;
-  /**
-   * @param gameId
-   * @param callback The callback
-   */
-  queryWorldMaps(gameId: string, callback: msRest.ServiceCallback<void>): void;
-  /**
-   * @param gameId
-   * @param options The optional parameters
-   * @param callback The callback
-   */
-  queryWorldMaps(gameId: string, options: Models.WwaRestApiClientQueryWorldMapsOptionalParams, callback: msRest.ServiceCallback<void>): void;
-  queryWorldMaps(gameId: string, options?: Models.WwaRestApiClientQueryWorldMapsOptionalParams | msRest.ServiceCallback<void>, callback?: msRest.ServiceCallback<void>): Promise<msRest.RestResponse> {
-    return this.sendOperationRequest(
-      {
-        gameId,
-        options
-      },
-      queryWorldMapsOperationSpec,
-      callback);
-  }
-
-  /**
-   * @summary Gets a list of Maps
-   * @param gameId
-   * @param [options] The optional parameters
-   * @returns Promise<Models.GetWorldMapsResponse>
-   */
-  getWorldMaps(gameId: string, options?: Models.WwaRestApiClientGetWorldMapsOptionalParams): Promise<Models.GetWorldMapsResponse>;
-  /**
-   * @param gameId
-   * @param callback The callback
-   */
-  getWorldMaps(gameId: string, callback: msRest.ServiceCallback<Models.WorldMapSummaryViewModel[]>): void;
-  /**
-   * @param gameId
-   * @param options The optional parameters
-   * @param callback The callback
-   */
-  getWorldMaps(gameId: string, options: Models.WwaRestApiClientGetWorldMapsOptionalParams, callback: msRest.ServiceCallback<Models.WorldMapSummaryViewModel[]>): void;
-  getWorldMaps(gameId: string, options?: Models.WwaRestApiClientGetWorldMapsOptionalParams | msRest.ServiceCallback<Models.WorldMapSummaryViewModel[]>, callback?: msRest.ServiceCallback<Models.WorldMapSummaryViewModel[]>): Promise<Models.GetWorldMapsResponse> {
-    return this.sendOperationRequest(
-      {
-        gameId,
-        options
-      },
-      getWorldMapsOperationSpec,
-      callback) as Promise<Models.GetWorldMapsResponse>;
-  }
-
-  /**
-   * @summary Creates a Map
-   * @param gameId
-   * @param [options] The optional parameters
-   * @returns Promise<Models.CreateWorldMapResponse>
-   */
-  createWorldMap(gameId: string, options?: Models.WwaRestApiClientCreateWorldMapOptionalParams): Promise<Models.CreateWorldMapResponse>;
-  /**
-   * @param gameId
-   * @param callback The callback
-   */
-  createWorldMap(gameId: string, callback: msRest.ServiceCallback<Models.WorldMapReadViewModel>): void;
-  /**
-   * @param gameId
-   * @param options The optional parameters
-   * @param callback The callback
-   */
-  createWorldMap(gameId: string, options: Models.WwaRestApiClientCreateWorldMapOptionalParams, callback: msRest.ServiceCallback<Models.WorldMapReadViewModel>): void;
-  createWorldMap(gameId: string, options?: Models.WwaRestApiClientCreateWorldMapOptionalParams | msRest.ServiceCallback<Models.WorldMapReadViewModel>, callback?: msRest.ServiceCallback<Models.WorldMapReadViewModel>): Promise<Models.CreateWorldMapResponse> {
-    return this.sendOperationRequest(
-      {
-        gameId,
-        options
-      },
-      createWorldMapOperationSpec,
-      callback) as Promise<Models.CreateWorldMapResponse>;
-  }
-
-  /**
-   * @summary Gets a Map
-   * @param gameId
-   * @param id
-   * @param [options] The optional parameters
-   * @returns Promise<Models.GetWorldMapResponse>
-   */
-  getWorldMap(gameId: string, id: string, options?: msRest.RequestOptionsBase): Promise<Models.GetWorldMapResponse>;
-  /**
-   * @param gameId
-   * @param id
-   * @param callback The callback
-   */
-  getWorldMap(gameId: string, id: string, callback: msRest.ServiceCallback<Models.WorldMapReadViewModel>): void;
-  /**
-   * @param gameId
-   * @param id
-   * @param options The optional parameters
-   * @param callback The callback
-   */
-  getWorldMap(gameId: string, id: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.WorldMapReadViewModel>): void;
-  getWorldMap(gameId: string, id: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.WorldMapReadViewModel>, callback?: msRest.ServiceCallback<Models.WorldMapReadViewModel>): Promise<Models.GetWorldMapResponse> {
-    return this.sendOperationRequest(
-      {
-        gameId,
-        id,
-        options
-      },
-      getWorldMapOperationSpec,
-      callback) as Promise<Models.GetWorldMapResponse>;
-  }
-
-  /**
-   * @summary Updates a Map
-   * @param gameId
-   * @param id
-   * @param [options] The optional parameters
-   * @returns Promise<Models.UpdateWorldMapResponse>
-   */
-  updateWorldMap(gameId: string, id: string, options?: Models.WwaRestApiClientUpdateWorldMapOptionalParams): Promise<Models.UpdateWorldMapResponse>;
-  /**
-   * @param gameId
-   * @param id
-   * @param callback The callback
-   */
-  updateWorldMap(gameId: string, id: string, callback: msRest.ServiceCallback<Models.WorldMapReadViewModel>): void;
-  /**
-   * @param gameId
-   * @param id
-   * @param options The optional parameters
-   * @param callback The callback
-   */
-  updateWorldMap(gameId: string, id: string, options: Models.WwaRestApiClientUpdateWorldMapOptionalParams, callback: msRest.ServiceCallback<Models.WorldMapReadViewModel>): void;
-  updateWorldMap(gameId: string, id: string, options?: Models.WwaRestApiClientUpdateWorldMapOptionalParams | msRest.ServiceCallback<Models.WorldMapReadViewModel>, callback?: msRest.ServiceCallback<Models.WorldMapReadViewModel>): Promise<Models.UpdateWorldMapResponse> {
-    return this.sendOperationRequest(
-      {
-        gameId,
-        id,
-        options
-      },
-      updateWorldMapOperationSpec,
-      callback) as Promise<Models.UpdateWorldMapResponse>;
-  }
-
-  /**
-   * @summary Deletes a Map
-   * @param gameId
-   * @param id
-   * @param [options] The optional parameters
-   * @returns Promise<msRest.RestResponse>
-   */
-  deleteWorldMap(gameId: string, id: string, options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse>;
-  /**
-   * @param gameId
-   * @param id
-   * @param callback The callback
-   */
-  deleteWorldMap(gameId: string, id: string, callback: msRest.ServiceCallback<void>): void;
-  /**
-   * @param gameId
-   * @param id
-   * @param options The optional parameters
-   * @param callback The callback
-   */
-  deleteWorldMap(gameId: string, id: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
-  deleteWorldMap(gameId: string, id: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<void>, callback?: msRest.ServiceCallback<void>): Promise<msRest.RestResponse> {
-    return this.sendOperationRequest(
-      {
-        gameId,
-        id,
-        options
-      },
-      deleteWorldMapOperationSpec,
-      callback);
-  }
-
-  /**
    * @summary Queries a User
    * @param [options] The optional parameters
    * @returns Promise<msRest.RestResponse>
@@ -580,6 +400,186 @@ class WwaRestApiClient extends WwaRestApiClientContext {
         options
       },
       deleteUserOperationSpec,
+      callback);
+  }
+
+  /**
+   * @summary Queries a World Map
+   * @param gameId
+   * @param [options] The optional parameters
+   * @returns Promise<msRest.RestResponse>
+   */
+  queryWorldMaps(gameId: string, options?: Models.WwaRestApiClientQueryWorldMapsOptionalParams): Promise<msRest.RestResponse>;
+  /**
+   * @param gameId
+   * @param callback The callback
+   */
+  queryWorldMaps(gameId: string, callback: msRest.ServiceCallback<void>): void;
+  /**
+   * @param gameId
+   * @param options The optional parameters
+   * @param callback The callback
+   */
+  queryWorldMaps(gameId: string, options: Models.WwaRestApiClientQueryWorldMapsOptionalParams, callback: msRest.ServiceCallback<void>): void;
+  queryWorldMaps(gameId: string, options?: Models.WwaRestApiClientQueryWorldMapsOptionalParams | msRest.ServiceCallback<void>, callback?: msRest.ServiceCallback<void>): Promise<msRest.RestResponse> {
+    return this.sendOperationRequest(
+      {
+        gameId,
+        options
+      },
+      queryWorldMapsOperationSpec,
+      callback);
+  }
+
+  /**
+   * @summary Gets a list of World Maps
+   * @param gameId
+   * @param [options] The optional parameters
+   * @returns Promise<Models.GetWorldMapsResponse>
+   */
+  getWorldMaps(gameId: string, options?: Models.WwaRestApiClientGetWorldMapsOptionalParams): Promise<Models.GetWorldMapsResponse>;
+  /**
+   * @param gameId
+   * @param callback The callback
+   */
+  getWorldMaps(gameId: string, callback: msRest.ServiceCallback<Models.WorldMapSummaryViewModel[]>): void;
+  /**
+   * @param gameId
+   * @param options The optional parameters
+   * @param callback The callback
+   */
+  getWorldMaps(gameId: string, options: Models.WwaRestApiClientGetWorldMapsOptionalParams, callback: msRest.ServiceCallback<Models.WorldMapSummaryViewModel[]>): void;
+  getWorldMaps(gameId: string, options?: Models.WwaRestApiClientGetWorldMapsOptionalParams | msRest.ServiceCallback<Models.WorldMapSummaryViewModel[]>, callback?: msRest.ServiceCallback<Models.WorldMapSummaryViewModel[]>): Promise<Models.GetWorldMapsResponse> {
+    return this.sendOperationRequest(
+      {
+        gameId,
+        options
+      },
+      getWorldMapsOperationSpec,
+      callback) as Promise<Models.GetWorldMapsResponse>;
+  }
+
+  /**
+   * @summary Creates a World Map
+   * @param gameId
+   * @param [options] The optional parameters
+   * @returns Promise<Models.CreateWorldMapResponse>
+   */
+  createWorldMap(gameId: string, options?: Models.WwaRestApiClientCreateWorldMapOptionalParams): Promise<Models.CreateWorldMapResponse>;
+  /**
+   * @param gameId
+   * @param callback The callback
+   */
+  createWorldMap(gameId: string, callback: msRest.ServiceCallback<Models.WorldMapReadViewModel>): void;
+  /**
+   * @param gameId
+   * @param options The optional parameters
+   * @param callback The callback
+   */
+  createWorldMap(gameId: string, options: Models.WwaRestApiClientCreateWorldMapOptionalParams, callback: msRest.ServiceCallback<Models.WorldMapReadViewModel>): void;
+  createWorldMap(gameId: string, options?: Models.WwaRestApiClientCreateWorldMapOptionalParams | msRest.ServiceCallback<Models.WorldMapReadViewModel>, callback?: msRest.ServiceCallback<Models.WorldMapReadViewModel>): Promise<Models.CreateWorldMapResponse> {
+    return this.sendOperationRequest(
+      {
+        gameId,
+        options
+      },
+      createWorldMapOperationSpec,
+      callback) as Promise<Models.CreateWorldMapResponse>;
+  }
+
+  /**
+   * @summary Gets a World Map
+   * @param gameId
+   * @param id
+   * @param [options] The optional parameters
+   * @returns Promise<Models.GetWorldMapResponse>
+   */
+  getWorldMap(gameId: string, id: string, options?: msRest.RequestOptionsBase): Promise<Models.GetWorldMapResponse>;
+  /**
+   * @param gameId
+   * @param id
+   * @param callback The callback
+   */
+  getWorldMap(gameId: string, id: string, callback: msRest.ServiceCallback<Models.WorldMapReadViewModel>): void;
+  /**
+   * @param gameId
+   * @param id
+   * @param options The optional parameters
+   * @param callback The callback
+   */
+  getWorldMap(gameId: string, id: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.WorldMapReadViewModel>): void;
+  getWorldMap(gameId: string, id: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.WorldMapReadViewModel>, callback?: msRest.ServiceCallback<Models.WorldMapReadViewModel>): Promise<Models.GetWorldMapResponse> {
+    return this.sendOperationRequest(
+      {
+        gameId,
+        id,
+        options
+      },
+      getWorldMapOperationSpec,
+      callback) as Promise<Models.GetWorldMapResponse>;
+  }
+
+  /**
+   * @summary Updates a World Map
+   * @param gameId
+   * @param id
+   * @param [options] The optional parameters
+   * @returns Promise<Models.UpdateWorldMapResponse>
+   */
+  updateWorldMap(gameId: string, id: string, options?: Models.WwaRestApiClientUpdateWorldMapOptionalParams): Promise<Models.UpdateWorldMapResponse>;
+  /**
+   * @param gameId
+   * @param id
+   * @param callback The callback
+   */
+  updateWorldMap(gameId: string, id: string, callback: msRest.ServiceCallback<Models.WorldMapReadViewModel>): void;
+  /**
+   * @param gameId
+   * @param id
+   * @param options The optional parameters
+   * @param callback The callback
+   */
+  updateWorldMap(gameId: string, id: string, options: Models.WwaRestApiClientUpdateWorldMapOptionalParams, callback: msRest.ServiceCallback<Models.WorldMapReadViewModel>): void;
+  updateWorldMap(gameId: string, id: string, options?: Models.WwaRestApiClientUpdateWorldMapOptionalParams | msRest.ServiceCallback<Models.WorldMapReadViewModel>, callback?: msRest.ServiceCallback<Models.WorldMapReadViewModel>): Promise<Models.UpdateWorldMapResponse> {
+    return this.sendOperationRequest(
+      {
+        gameId,
+        id,
+        options
+      },
+      updateWorldMapOperationSpec,
+      callback) as Promise<Models.UpdateWorldMapResponse>;
+  }
+
+  /**
+   * @summary Deletes a World Map
+   * @param gameId
+   * @param id
+   * @param [options] The optional parameters
+   * @returns Promise<msRest.RestResponse>
+   */
+  deleteWorldMap(gameId: string, id: string, options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse>;
+  /**
+   * @param gameId
+   * @param id
+   * @param callback The callback
+   */
+  deleteWorldMap(gameId: string, id: string, callback: msRest.ServiceCallback<void>): void;
+  /**
+   * @param gameId
+   * @param id
+   * @param options The optional parameters
+   * @param callback The callback
+   */
+  deleteWorldMap(gameId: string, id: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
+  deleteWorldMap(gameId: string, id: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<void>, callback?: msRest.ServiceCallback<void>): Promise<msRest.RestResponse> {
+    return this.sendOperationRequest(
+      {
+        gameId,
+        id,
+        options
+      },
+      deleteWorldMapOperationSpec,
       callback);
   }
 }
@@ -799,180 +799,6 @@ const deleteGameOperationSpec: msRest.OperationSpec = {
   serializer
 };
 
-const queryWorldMapsOperationSpec: msRest.OperationSpec = {
-  httpMethod: "HEAD",
-  path: "games/{gameId}/maps",
-  urlParameters: [
-    Parameters.gameId
-  ],
-  queryParameters: [
-    Parameters.name
-  ],
-  responses: {
-    204: {},
-    400: {},
-    401: {},
-    403: {},
-    404: {},
-    500: {},
-    default: {}
-  },
-  serializer
-};
-
-const getWorldMapsOperationSpec: msRest.OperationSpec = {
-  httpMethod: "GET",
-  path: "games/{gameId}/maps",
-  urlParameters: [
-    Parameters.gameId
-  ],
-  queryParameters: [
-    Parameters.skip,
-    Parameters.take,
-    Parameters.sortField,
-    Parameters.sortDirection,
-    Parameters.search
-  ],
-  responses: {
-    200: {
-      bodyMapper: {
-        serializedName: "parsedResponse",
-        type: {
-          name: "Sequence",
-          element: {
-            type: {
-              name: "Composite",
-              className: "WorldMapSummaryViewModel"
-            }
-          }
-        }
-      },
-      headersMapper: Mappers.GetWorldMapsHeaders
-    },
-    400: {
-      headersMapper: Mappers.GetWorldMapsHeaders
-    },
-    401: {
-      headersMapper: Mappers.GetWorldMapsHeaders
-    },
-    403: {
-      headersMapper: Mappers.GetWorldMapsHeaders
-    },
-    404: {
-      headersMapper: Mappers.GetWorldMapsHeaders
-    },
-    500: {
-      headersMapper: Mappers.GetWorldMapsHeaders
-    },
-    default: {}
-  },
-  serializer
-};
-
-const createWorldMapOperationSpec: msRest.OperationSpec = {
-  httpMethod: "POST",
-  path: "games/{gameId}/maps",
-  urlParameters: [
-    Parameters.gameId
-  ],
-  requestBody: {
-    parameterPath: [
-      "options",
-      "body"
-    ],
-    mapper: Mappers.WorldMapCreateViewModel
-  },
-  responses: {
-    200: {
-      bodyMapper: Mappers.WorldMapReadViewModel
-    },
-    400: {},
-    401: {},
-    403: {},
-    404: {},
-    500: {},
-    default: {}
-  },
-  serializer
-};
-
-const getWorldMapOperationSpec: msRest.OperationSpec = {
-  httpMethod: "GET",
-  path: "games/{gameId}/maps/{id}",
-  urlParameters: [
-    Parameters.gameId,
-    Parameters.id
-  ],
-  responses: {
-    200: {
-      bodyMapper: Mappers.WorldMapReadViewModel
-    },
-    401: {},
-    403: {},
-    404: {},
-    500: {},
-    default: {}
-  },
-  serializer
-};
-
-const updateWorldMapOperationSpec: msRest.OperationSpec = {
-  httpMethod: "PATCH",
-  path: "games/{gameId}/maps/{id}",
-  urlParameters: [
-    Parameters.gameId,
-    Parameters.id
-  ],
-  requestBody: {
-    parameterPath: [
-      "options",
-      "body"
-    ],
-    mapper: {
-      serializedName: "body",
-      type: {
-        name: "Sequence",
-        element: {
-          type: {
-            name: "Composite",
-            className: "Operation"
-          }
-        }
-      }
-    }
-  },
-  responses: {
-    200: {
-      bodyMapper: Mappers.WorldMapReadViewModel
-    },
-    400: {},
-    401: {},
-    403: {},
-    404: {},
-    500: {},
-    default: {}
-  },
-  serializer
-};
-
-const deleteWorldMapOperationSpec: msRest.OperationSpec = {
-  httpMethod: "DELETE",
-  path: "games/{gameId}/maps/{id}",
-  urlParameters: [
-    Parameters.gameId,
-    Parameters.id
-  ],
-  responses: {
-    204: {},
-    401: {},
-    403: {},
-    404: {},
-    500: {},
-    default: {}
-  },
-  serializer
-};
-
 const queryUsersOperationSpec: msRest.OperationSpec = {
   httpMethod: "HEAD",
   path: "users",
@@ -1106,6 +932,180 @@ const deleteUserOperationSpec: msRest.OperationSpec = {
   httpMethod: "DELETE",
   path: "users/{id}",
   urlParameters: [
+    Parameters.id
+  ],
+  responses: {
+    204: {},
+    401: {},
+    403: {},
+    404: {},
+    500: {},
+    default: {}
+  },
+  serializer
+};
+
+const queryWorldMapsOperationSpec: msRest.OperationSpec = {
+  httpMethod: "HEAD",
+  path: "games/{gameId}/worldMaps",
+  urlParameters: [
+    Parameters.gameId
+  ],
+  queryParameters: [
+    Parameters.name
+  ],
+  responses: {
+    204: {},
+    400: {},
+    401: {},
+    403: {},
+    404: {},
+    500: {},
+    default: {}
+  },
+  serializer
+};
+
+const getWorldMapsOperationSpec: msRest.OperationSpec = {
+  httpMethod: "GET",
+  path: "games/{gameId}/worldMaps",
+  urlParameters: [
+    Parameters.gameId
+  ],
+  queryParameters: [
+    Parameters.skip,
+    Parameters.take,
+    Parameters.sortField,
+    Parameters.sortDirection,
+    Parameters.search
+  ],
+  responses: {
+    200: {
+      bodyMapper: {
+        serializedName: "parsedResponse",
+        type: {
+          name: "Sequence",
+          element: {
+            type: {
+              name: "Composite",
+              className: "WorldMapSummaryViewModel"
+            }
+          }
+        }
+      },
+      headersMapper: Mappers.GetWorldMapsHeaders
+    },
+    400: {
+      headersMapper: Mappers.GetWorldMapsHeaders
+    },
+    401: {
+      headersMapper: Mappers.GetWorldMapsHeaders
+    },
+    403: {
+      headersMapper: Mappers.GetWorldMapsHeaders
+    },
+    404: {
+      headersMapper: Mappers.GetWorldMapsHeaders
+    },
+    500: {
+      headersMapper: Mappers.GetWorldMapsHeaders
+    },
+    default: {}
+  },
+  serializer
+};
+
+const createWorldMapOperationSpec: msRest.OperationSpec = {
+  httpMethod: "POST",
+  path: "games/{gameId}/worldMaps",
+  urlParameters: [
+    Parameters.gameId
+  ],
+  requestBody: {
+    parameterPath: [
+      "options",
+      "body"
+    ],
+    mapper: Mappers.WorldMapCreateViewModel
+  },
+  responses: {
+    200: {
+      bodyMapper: Mappers.WorldMapReadViewModel
+    },
+    400: {},
+    401: {},
+    403: {},
+    404: {},
+    500: {},
+    default: {}
+  },
+  serializer
+};
+
+const getWorldMapOperationSpec: msRest.OperationSpec = {
+  httpMethod: "GET",
+  path: "games/{gameId}/worldMaps/{id}",
+  urlParameters: [
+    Parameters.gameId,
+    Parameters.id
+  ],
+  responses: {
+    200: {
+      bodyMapper: Mappers.WorldMapReadViewModel
+    },
+    401: {},
+    403: {},
+    404: {},
+    500: {},
+    default: {}
+  },
+  serializer
+};
+
+const updateWorldMapOperationSpec: msRest.OperationSpec = {
+  httpMethod: "PATCH",
+  path: "games/{gameId}/worldMaps/{id}",
+  urlParameters: [
+    Parameters.gameId,
+    Parameters.id
+  ],
+  requestBody: {
+    parameterPath: [
+      "options",
+      "body"
+    ],
+    mapper: {
+      serializedName: "body",
+      type: {
+        name: "Sequence",
+        element: {
+          type: {
+            name: "Composite",
+            className: "Operation"
+          }
+        }
+      }
+    }
+  },
+  responses: {
+    200: {
+      bodyMapper: Mappers.WorldMapReadViewModel
+    },
+    400: {},
+    401: {},
+    403: {},
+    404: {},
+    500: {},
+    default: {}
+  },
+  serializer
+};
+
+const deleteWorldMapOperationSpec: msRest.OperationSpec = {
+  httpMethod: "DELETE",
+  path: "games/{gameId}/worldMaps/{id}",
+  urlParameters: [
+    Parameters.gameId,
     Parameters.id
   ],
   responses: {

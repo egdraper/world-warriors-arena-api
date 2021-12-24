@@ -11,20 +11,22 @@ namespace WWA.RestApi.CsharpClient.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class GatewayLayerReadViewModel
+    public partial class SpriteLayerViewModel
     {
         /// <summary>
-        /// Initializes a new instance of the GatewayLayerReadViewModel class.
+        /// Initializes a new instance of the SpriteLayerViewModel class.
         /// </summary>
-        public GatewayLayerReadViewModel()
+        public SpriteLayerViewModel()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the GatewayLayerReadViewModel class.
+        /// Initializes a new instance of the SpriteLayerViewModel class.
         /// </summary>
-        public GatewayLayerReadViewModel(IDictionary<string, GatewayReadViewModel> grid = default(IDictionary<string, GatewayReadViewModel>))
+        /// <param name="grid">Grid key represents a coordinate and should be
+        /// formatted as "{int x}:{int y}".</param>
+        public SpriteLayerViewModel(IDictionary<string, CellViewModel> grid = default(IDictionary<string, CellViewModel>))
         {
             Grid = grid;
             CustomInit();
@@ -36,9 +38,11 @@ namespace WWA.RestApi.CsharpClient.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets grid key represents a coordinate and should be
+        /// formatted as "{int x}:{int y}".
         /// </summary>
         [JsonProperty(PropertyName = "grid")]
-        public IDictionary<string, GatewayReadViewModel> Grid { get; set; }
+        public IDictionary<string, CellViewModel> Grid { get; set; }
 
     }
 }

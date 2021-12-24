@@ -187,137 +187,6 @@ namespace WWA.RestApi.CsharpClient
             }
 
             /// <summary>
-            /// Queries a Map
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='gameId'>
-            /// </param>
-            /// <param name='name'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task QueryWorldMapsAsync(this IWwaRestApiClient operations, string gameId, string name = default(string), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                (await operations.QueryWorldMapsWithHttpMessagesAsync(gameId, name, null, cancellationToken).ConfigureAwait(false)).Dispose();
-            }
-
-            /// <summary>
-            /// Gets a list of Maps
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='gameId'>
-            /// </param>
-            /// <param name='skip'>
-            /// </param>
-            /// <param name='take'>
-            /// </param>
-            /// <param name='sortField'>
-            /// </param>
-            /// <param name='sortDirection'>
-            /// Possible values include: 'Ascending', 'Descending'
-            /// </param>
-            /// <param name='search'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<IList<WorldMapSummaryViewModel>> GetWorldMapsAsync(this IWwaRestApiClient operations, string gameId, int? skip = default(int?), int? take = default(int?), string sortField = default(string), string sortDirection = default(string), string search = default(string), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetWorldMapsWithHttpMessagesAsync(gameId, skip, take, sortField, sortDirection, search, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Creates a Map
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='gameId'>
-            /// </param>
-            /// <param name='body'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<WorldMapReadViewModel> CreateWorldMapAsync(this IWwaRestApiClient operations, string gameId, WorldMapCreateViewModel body = default(WorldMapCreateViewModel), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.CreateWorldMapWithHttpMessagesAsync(gameId, body, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Gets a Map
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='gameId'>
-            /// </param>
-            /// <param name='id'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<WorldMapReadViewModel> GetWorldMapAsync(this IWwaRestApiClient operations, string gameId, string id, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetWorldMapWithHttpMessagesAsync(gameId, id, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Updates a Map
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='gameId'>
-            /// </param>
-            /// <param name='id'>
-            /// </param>
-            /// <param name='body'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<WorldMapReadViewModel> UpdateWorldMapAsync(this IWwaRestApiClient operations, string gameId, string id, IList<Operation> body = default(IList<Operation>), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.UpdateWorldMapWithHttpMessagesAsync(gameId, id, body, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Deletes a Map
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='gameId'>
-            /// </param>
-            /// <param name='id'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task DeleteWorldMapAsync(this IWwaRestApiClient operations, string gameId, string id, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                (await operations.DeleteWorldMapWithHttpMessagesAsync(gameId, id, null, cancellationToken).ConfigureAwait(false)).Dispose();
-            }
-
-            /// <summary>
             /// Queries a User
             /// </summary>
             /// <param name='operations'>
@@ -434,6 +303,137 @@ namespace WWA.RestApi.CsharpClient
             public static async Task DeleteUserAsync(this IWwaRestApiClient operations, string id, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.DeleteUserWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
+            /// Queries a World Map
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gameId'>
+            /// </param>
+            /// <param name='name'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task QueryWorldMapsAsync(this IWwaRestApiClient operations, string gameId, string name = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.QueryWorldMapsWithHttpMessagesAsync(gameId, name, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
+            /// Gets a list of World Maps
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gameId'>
+            /// </param>
+            /// <param name='skip'>
+            /// </param>
+            /// <param name='take'>
+            /// </param>
+            /// <param name='sortField'>
+            /// </param>
+            /// <param name='sortDirection'>
+            /// Possible values include: 'Ascending', 'Descending'
+            /// </param>
+            /// <param name='search'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<IList<WorldMapSummaryViewModel>> GetWorldMapsAsync(this IWwaRestApiClient operations, string gameId, int? skip = default(int?), int? take = default(int?), string sortField = default(string), string sortDirection = default(string), string search = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetWorldMapsWithHttpMessagesAsync(gameId, skip, take, sortField, sortDirection, search, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Creates a World Map
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gameId'>
+            /// </param>
+            /// <param name='body'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<WorldMapReadViewModel> CreateWorldMapAsync(this IWwaRestApiClient operations, string gameId, WorldMapCreateViewModel body = default(WorldMapCreateViewModel), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CreateWorldMapWithHttpMessagesAsync(gameId, body, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Gets a World Map
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gameId'>
+            /// </param>
+            /// <param name='id'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<WorldMapReadViewModel> GetWorldMapAsync(this IWwaRestApiClient operations, string gameId, string id, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetWorldMapWithHttpMessagesAsync(gameId, id, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Updates a World Map
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gameId'>
+            /// </param>
+            /// <param name='id'>
+            /// </param>
+            /// <param name='body'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<WorldMapReadViewModel> UpdateWorldMapAsync(this IWwaRestApiClient operations, string gameId, string id, IList<Operation> body = default(IList<Operation>), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UpdateWorldMapWithHttpMessagesAsync(gameId, id, body, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Deletes a World Map
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gameId'>
+            /// </param>
+            /// <param name='id'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task DeleteWorldMapAsync(this IWwaRestApiClient operations, string gameId, string id, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.DeleteWorldMapWithHttpMessagesAsync(gameId, id, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
     }
