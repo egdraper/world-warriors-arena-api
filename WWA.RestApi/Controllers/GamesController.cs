@@ -42,7 +42,7 @@ namespace WWA.RestApi.Controllers
         {
             var gameService = _clusterClient.GetGrain<IGameService>(Guid.Empty);
 
-            var xTotalCount = await gameService.QueryGamesAsync(UserId, name);
+            var xTotalCount = await gameService.QueryGamesAsync(ownedBy: UserId, name: name);
 
             HttpContext.Response.Headers.Add("X-Total-Count", xTotalCount.ToString());
             return NoContent();

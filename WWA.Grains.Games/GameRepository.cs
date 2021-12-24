@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using WWA.GrainInterfaces.Models;
 using WWA.Grains.Constants;
@@ -12,7 +13,7 @@ namespace WWA.Grains.Games
 {
     public interface IGameRepository
     {
-        Task<int> ExistsAsync(string ownedBy, string name);
+        Task<int> ExistsAsync(string id = null, string playerId = null, string ownedBy = null, string name = null);
         Task<Game> GetGameAsync(string id);
         Task<PaginatedEntityModel<Game>> ListGamesPagedAsync(string userId, PaginationQueryModel paginationQuery);
         Task<Game> CreateGameAsync(Game game);
@@ -32,9 +33,14 @@ namespace WWA.Grains.Games
             _mapper = mapper;
         }
 
-        public Task<int> ExistsAsync(string ownedBy, string name)
+        public Task<int> ExistsAsync(string id, string playerId, string ownedBy, string name)
         {
-            return QueryAsync(_filter.And(_filter.Eq("OwnedBy", ownedBy), _filter.Eq("Name", name)));
+            List<FilterDefinition<Game>> filters = new();
+            if (!string.IsNullOrWhiteSpace(id)) { filters.Add(_filter.Eq("_id", ObjectId.Parse(id))); }
+            if (!string.IsNullOrWhiteSpace(playerId)) { filters.Add(_filter.AnyEq("Players", playerId)); }
+            if (!string.IsNullOrWhiteSpace(ownedBy)) { filters.Add(_filter.Eq("OwnedBy", ownedBy)); }
+            if (!string.IsNullOrWhiteSpace(name)) { filters.Add(_filter.Eq("Name", name)); }
+            return QueryAsync(_filter.And(filters));
         }
 
         public async Task<Game> GetGameAsync(string id)

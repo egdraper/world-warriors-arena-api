@@ -6,7 +6,11 @@ namespace WWA.GrainInterfaces
 {
     public interface IGameService : IGrainWithGuidKey
     {
-        Task<int> QueryGamesAsync(string ownedBy, string name);
+        Task<int> QueryGamesAsync(
+            string gameId = null,
+            string playerId = null,
+            string ownedBy = null,
+            string name = null);
         Task<PaginatedEntityModel<GameModel>> GetGamesAsync(string userId, PaginationQueryModel paginationQuery);
         Task<GameModel> GetGameAsync(string userId, string id);
         Task<GameModel> CreateGameAsync(string userId, GameModel gameModel);

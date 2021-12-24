@@ -187,15 +187,15 @@ namespace WWA.RestApi
             // Grains
             builder.RegisterType<GameService>().AsSelf();
             builder.RegisterType<GameGrain>().AsSelf();
-            builder.RegisterType<MapService>().AsSelf();
-            builder.RegisterType<MapGrain>().AsSelf();
+            builder.RegisterType<WorldMapService>().AsSelf();
+            builder.RegisterType<WorldMapGrain>().AsSelf();
             builder.RegisterType<UserService>().AsSelf();
             builder.RegisterType<UserGrain>().AsSelf();
 
             // Repositories
             builder.RegisterType<MongoContext>().As<IMongoContext>().SingleInstance();
             builder.RegisterType<GameRepository>().As<IGameRepository>().SingleInstance();
-            builder.RegisterType<MapRepository>().As<IMapRepository>().SingleInstance();
+            builder.RegisterType<WorldMapRepository>().As<IWorldMapRepository>().SingleInstance();
             builder.RegisterType<UserRepository>().As<IUserRepository>().SingleInstance();
 
             RegisterSingletons(builder);

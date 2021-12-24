@@ -133,8 +133,8 @@ namespace WWA.RestApi
                         parts
                             .AddApplicationPart(typeof(GameService).Assembly)
                             .AddApplicationPart(typeof(GameGrain).Assembly)
-                            .AddApplicationPart(typeof(MapService).Assembly)
-                            .AddApplicationPart(typeof(MapGrain).Assembly)
+                            .AddApplicationPart(typeof(WorldMapService).Assembly)
+                            .AddApplicationPart(typeof(WorldMapGrain).Assembly)
                             .AddApplicationPart(typeof(UserService).Assembly)
                             .AddApplicationPart(typeof(UserGrain).Assembly)
                             .WithReferences()

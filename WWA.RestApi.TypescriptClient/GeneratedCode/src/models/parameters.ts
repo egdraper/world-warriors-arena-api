@@ -18,11 +18,33 @@ export const email: msRest.OperationQueryParameter = {
     }
   }
 };
+export const gameId: msRest.OperationURLParameter = {
+  parameterPath: "gameId",
+  mapper: {
+    required: true,
+    serializedName: "gameId",
+    type: {
+      name: "String"
+    }
+  }
+};
 export const id: msRest.OperationURLParameter = {
   parameterPath: "id",
   mapper: {
     required: true,
     serializedName: "id",
+    type: {
+      name: "String"
+    }
+  }
+};
+export const name: msRest.OperationQueryParameter = {
+  parameterPath: [
+    "options",
+    "name"
+  ],
+  mapper: {
+    serializedName: "name",
     type: {
       name: "String"
     }

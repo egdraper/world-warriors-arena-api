@@ -58,8 +58,701 @@
           "400": {
             "description": "There were validation errors."
           },
+          "403": {
+            "description": "Not authorized to make this request."
+          },
           "500": {
             "description": "There was an internal server error."
+          },
+          "401": {
+            "description": "Unable to authenticate provided credentials."
+          }
+        }
+      }
+    },
+    "/currentContext": {
+      "get": {
+        "tags": [
+          "CurrentContext"
+        ],
+        "summary": "Gets a list of Current Context",
+        "operationId": "GetCurrentContext",
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved a list of  Current Context.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CurrentContextReadViewModel"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not authorized to make this request."
+          },
+          "500": {
+            "description": "There was an internal server error."
+          },
+          "401": {
+            "description": "Unable to authenticate provided credentials."
+          }
+        }
+      }
+    },
+    "/games": {
+      "head": {
+        "tags": [
+          "Games"
+        ],
+        "summary": "Queries a Game",
+        "operationId": "QueryGames",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "There were validation errors."
+          },
+          "403": {
+            "description": "Not authorized to make this request."
+          },
+          "500": {
+            "description": "There was an internal server error."
+          },
+          "401": {
+            "description": "Unable to authenticate provided credentials."
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Games"
+        ],
+        "summary": "Gets a list of Games",
+        "operationId": "GetGames",
+        "parameters": [
+          {
+            "name": "Skip",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Take",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "SortField",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "SortDirection",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SortDirectionType"
+            }
+          },
+          {
+            "name": "Search",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved a list of paged Games.",
+            "headers": {
+              "X-Total-Count": {
+                "description": "The total number of filtered resources.",
+                "schema": {
+                  "type": "number"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GameSummaryViewModel"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "There were validation errors."
+          },
+          "403": {
+            "description": "Not authorized to make this request."
+          },
+          "500": {
+            "description": "There was an internal server error."
+          },
+          "401": {
+            "description": "Unable to authenticate provided credentials."
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Games"
+        ],
+        "summary": "Creates a Game",
+        "operationId": "CreateGame",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GameCreateViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved a list of  Games.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GameReadViewModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "There were validation errors."
+          },
+          "403": {
+            "description": "Not authorized to make this request."
+          },
+          "500": {
+            "description": "There was an internal server error."
+          },
+          "401": {
+            "description": "Unable to authenticate provided credentials."
+          }
+        }
+      }
+    },
+    "/games/{id}": {
+      "get": {
+        "tags": [
+          "Games"
+        ],
+        "summary": "Gets a Game",
+        "operationId": "GetGame",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved a Game.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GameReadViewModel"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not authorized to make this request."
+          },
+          "404": {
+            "description": "The target route does not exist or contains an ID that cannot be found."
+          },
+          "500": {
+            "description": "There was an internal server error."
+          },
+          "401": {
+            "description": "Unable to authenticate provided credentials."
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Games"
+        ],
+        "summary": "Updates a Game",
+        "operationId": "UpdateGame",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "nullable": true
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved a Game.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GameReadViewModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "There were validation errors."
+          },
+          "403": {
+            "description": "Not authorized to make this request."
+          },
+          "404": {
+            "description": "The target route does not exist or contains an ID that cannot be found."
+          },
+          "500": {
+            "description": "There was an internal server error."
+          },
+          "401": {
+            "description": "Unable to authenticate provided credentials."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Games"
+        ],
+        "summary": "Deletes a Game",
+        "operationId": "DeleteGame",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "403": {
+            "description": "Not authorized to make this request."
+          },
+          "404": {
+            "description": "The target route does not exist or contains an ID that cannot be found."
+          },
+          "500": {
+            "description": "There was an internal server error."
+          },
+          "401": {
+            "description": "Unable to authenticate provided credentials."
+          }
+        }
+      }
+    },
+    "/games/{gameId}/maps": {
+      "head": {
+        "tags": [
+          "Maps"
+        ],
+        "summary": "Queries a Map",
+        "operationId": "QueryWorldMaps",
+        "parameters": [
+          {
+            "name": "gameId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "There were validation errors."
+          },
+          "403": {
+            "description": "Not authorized to make this request."
+          },
+          "404": {
+            "description": "The target route does not exist or contains an ID that cannot be found."
+          },
+          "500": {
+            "description": "There was an internal server error."
+          },
+          "401": {
+            "description": "Unable to authenticate provided credentials."
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Maps"
+        ],
+        "summary": "Gets a list of Maps",
+        "operationId": "GetWorldMaps",
+        "parameters": [
+          {
+            "name": "gameId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Skip",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Take",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "SortField",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "SortDirection",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SortDirectionType"
+            }
+          },
+          {
+            "name": "Search",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved a list of paged Maps.",
+            "headers": {
+              "X-Total-Count": {
+                "description": "The total number of filtered resources.",
+                "schema": {
+                  "type": "number"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WorldMapSummaryViewModel"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "There were validation errors."
+          },
+          "403": {
+            "description": "Not authorized to make this request."
+          },
+          "404": {
+            "description": "The target route does not exist or contains an ID that cannot be found."
+          },
+          "500": {
+            "description": "There was an internal server error."
+          },
+          "401": {
+            "description": "Unable to authenticate provided credentials."
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Maps"
+        ],
+        "summary": "Creates a Map",
+        "operationId": "CreateWorldMap",
+        "parameters": [
+          {
+            "name": "gameId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorldMapCreateViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved a list of  Maps.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorldMapReadViewModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "There were validation errors."
+          },
+          "403": {
+            "description": "Not authorized to make this request."
+          },
+          "404": {
+            "description": "The target route does not exist or contains an ID that cannot be found."
+          },
+          "500": {
+            "description": "There was an internal server error."
+          },
+          "401": {
+            "description": "Unable to authenticate provided credentials."
+          }
+        }
+      }
+    },
+    "/games/{gameId}/maps/{id}": {
+      "get": {
+        "tags": [
+          "Maps"
+        ],
+        "summary": "Gets a Map",
+        "operationId": "GetWorldMap",
+        "parameters": [
+          {
+            "name": "gameId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved a Map.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorldMapReadViewModel"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not authorized to make this request."
+          },
+          "404": {
+            "description": "The target route does not exist or contains an ID that cannot be found."
+          },
+          "500": {
+            "description": "There was an internal server error."
+          },
+          "401": {
+            "description": "Unable to authenticate provided credentials."
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Maps"
+        ],
+        "summary": "Updates a Map",
+        "operationId": "UpdateWorldMap",
+        "parameters": [
+          {
+            "name": "gameId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "nullable": true
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved a Map.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorldMapReadViewModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "There were validation errors."
+          },
+          "403": {
+            "description": "Not authorized to make this request."
+          },
+          "404": {
+            "description": "The target route does not exist or contains an ID that cannot be found."
+          },
+          "500": {
+            "description": "There was an internal server error."
+          },
+          "401": {
+            "description": "Unable to authenticate provided credentials."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Maps"
+        ],
+        "summary": "Deletes a Map",
+        "operationId": "DeleteWorldMap",
+        "parameters": [
+          {
+            "name": "gameId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "403": {
+            "description": "Not authorized to make this request."
+          },
+          "404": {
+            "description": "The target route does not exist or contains an ID that cannot be found."
+          },
+          "500": {
+            "description": "There was an internal server error."
+          },
+          "401": {
+            "description": "Unable to authenticate provided credentials."
           }
         }
       }
@@ -325,7 +1018,7 @@
           "Users"
         ],
         "summary": "Deletes a User",
-        "operationId": "Delete",
+        "operationId": "DeleteUser",
         "parameters": [
           {
             "name": "id",
@@ -374,12 +1067,352 @@
           }
         }
       },
+      "CurrentContextReadViewModel": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "displayName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
       "SortDirectionType": {
         "enum": [
           "Ascending",
           "Descending"
         ],
         "type": "string"
+      },
+      "GameSummaryViewModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "ownedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "players": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        }
+      },
+      "GameCreateViewModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GameReadViewModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "ownedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "players": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "createdBy": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "OperationType": {
+        "enum": [
+          "Add",
+          "Remove",
+          "Replace",
+          "Move",
+          "Copy",
+          "Test",
+          "Invalid"
+        ],
+        "type": "string"
+      },
+      "Operation": {
+        "type": "object",
+        "properties": {
+          "operationType": {
+            "$ref": "#/components/schemas/OperationType"
+          },
+          "path": {
+            "type": "string",
+            "nullable": true
+          },
+          "op": {
+            "type": "string",
+            "nullable": true
+          },
+          "from": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "nullable": true
+          }
+        },
+        "example": {
+          "path": "/property",
+          "op": "replace",
+          "value": "value"
+        }
+      },
+      "WorldMapSummaryViewModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "gameId": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdBy": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "WorldMapCreateViewModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "MapSizeViewModel": {
+        "type": "object",
+        "properties": {
+          "width": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "CoordinateViewModel": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "y": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "CellReadViewModel": {
+        "type": "object",
+        "properties": {
+          "spriteId": {
+            "type": "string",
+            "nullable": true
+          },
+          "tileLocation": {
+            "$ref": "#/components/schemas/CoordinateViewModel"
+          },
+          "z": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isObstructed": {
+            "type": "boolean"
+          }
+        }
+      },
+      "SpriteLayerReadViewModel": {
+        "type": "object",
+        "properties": {
+          "grid": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/CellReadViewModel"
+            },
+            "description": "Grid key represents a coordinate and should be formatted as \"{int x}:{int y}\".",
+            "nullable": true,
+            "example": {
+              "0:0": {
+                "spriteId": "string",
+                "tileLocation": {
+                  "x": 0,
+                  "y": 0
+                },
+                "z": 0,
+                "isObstructed": true
+              },
+              "0:1": {
+                "spriteId": "string",
+                "tileLocation": {
+                  "x": 0,
+                  "y": 0
+                },
+                "z": 0,
+                "isObstructed": true
+              }
+            }
+          }
+        }
+      },
+      "GatewayReadViewModel": {
+        "type": "object",
+        "properties": {
+          "mapId": {
+            "type": "string",
+            "nullable": true
+          },
+          "mapCoordinate": {
+            "$ref": "#/components/schemas/CoordinateViewModel"
+          }
+        }
+      },
+      "GatewayLayerReadViewModel": {
+        "type": "object",
+        "properties": {
+          "grid": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/GatewayReadViewModel"
+            },
+            "nullable": true,
+            "example": {
+              "0:0": {
+                "mapId": "string",
+                "mapCoordinate": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "0:1": {
+                "mapId": "string",
+                "mapCoordinate": {
+                  "x": 0,
+                  "y": 0
+                }
+              }
+            }
+          }
+        }
+      },
+      "ElevationReadViewModel": {
+        "type": "object",
+        "properties": {
+          "baseLayer": {
+            "$ref": "#/components/schemas/SpriteLayerReadViewModel"
+          },
+          "terrainLayer": {
+            "$ref": "#/components/schemas/SpriteLayerReadViewModel"
+          },
+          "structureLayer": {
+            "$ref": "#/components/schemas/SpriteLayerReadViewModel"
+          },
+          "partitionLayer": {
+            "$ref": "#/components/schemas/SpriteLayerReadViewModel"
+          },
+          "ceilingObjectLayer": {
+            "$ref": "#/components/schemas/SpriteLayerReadViewModel"
+          },
+          "floorObjectLayer": {
+            "$ref": "#/components/schemas/SpriteLayerReadViewModel"
+          },
+          "suspendedObjectLayer": {
+            "$ref": "#/components/schemas/SpriteLayerReadViewModel"
+          },
+          "wallObjectLayer": {
+            "$ref": "#/components/schemas/SpriteLayerReadViewModel"
+          },
+          "gatewayLayer": {
+            "$ref": "#/components/schemas/GatewayLayerReadViewModel"
+          }
+        }
+      },
+      "WorldMapReadViewModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "gameId": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateCreated": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dateModified": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "size": {
+            "$ref": "#/components/schemas/MapSizeViewModel"
+          },
+          "elevations": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ElevationReadViewModel"
+            },
+            "description": "Elevations key is an int that represents the y index of the corresponding Elevation object.",
+            "nullable": true
+          }
+        }
       },
       "UserSummaryViewModel": {
         "type": "object",
@@ -477,6 +1510,15 @@
     {
       "name": "AccessTokens",
       "description": "API for generating tokens used to authenticate other operations."
+    },
+    {
+      "name": "CurrentContext"
+    },
+    {
+      "name": "Games"
+    },
+    {
+      "name": "Maps"
     },
     {
       "name": "Users",

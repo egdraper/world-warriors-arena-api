@@ -30,6 +30,508 @@ export const AccessTokenCreateViewModel: msRest.CompositeMapper = {
   }
 };
 
+export const CurrentContextReadViewModel: msRest.CompositeMapper = {
+  serializedName: "CurrentContextReadViewModel",
+  type: {
+    name: "Composite",
+    className: "CurrentContextReadViewModel",
+    modelProperties: {
+      userId: {
+        serializedName: "userId",
+        type: {
+          name: "String"
+        }
+      },
+      email: {
+        serializedName: "email",
+        type: {
+          name: "String"
+        }
+      },
+      displayName: {
+        serializedName: "displayName",
+        type: {
+          name: "String"
+        }
+      }
+    }
+  }
+};
+
+export const GameSummaryViewModel: msRest.CompositeMapper = {
+  serializedName: "GameSummaryViewModel",
+  type: {
+    name: "Composite",
+    className: "GameSummaryViewModel",
+    modelProperties: {
+      id: {
+        serializedName: "id",
+        type: {
+          name: "String"
+        }
+      },
+      name: {
+        serializedName: "name",
+        type: {
+          name: "String"
+        }
+      },
+      ownedBy: {
+        serializedName: "ownedBy",
+        type: {
+          name: "String"
+        }
+      },
+      players: {
+        serializedName: "players",
+        type: {
+          name: "Sequence",
+          element: {
+            type: {
+              name: "String"
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+export const GameCreateViewModel: msRest.CompositeMapper = {
+  serializedName: "GameCreateViewModel",
+  type: {
+    name: "Composite",
+    className: "GameCreateViewModel",
+    modelProperties: {
+      name: {
+        serializedName: "name",
+        type: {
+          name: "String"
+        }
+      }
+    }
+  }
+};
+
+export const GameReadViewModel: msRest.CompositeMapper = {
+  serializedName: "GameReadViewModel",
+  type: {
+    name: "Composite",
+    className: "GameReadViewModel",
+    modelProperties: {
+      id: {
+        serializedName: "id",
+        type: {
+          name: "String"
+        }
+      },
+      name: {
+        serializedName: "name",
+        type: {
+          name: "String"
+        }
+      },
+      ownedBy: {
+        serializedName: "ownedBy",
+        type: {
+          name: "String"
+        }
+      },
+      players: {
+        serializedName: "players",
+        type: {
+          name: "Sequence",
+          element: {
+            type: {
+              name: "String"
+            }
+          }
+        }
+      },
+      createdBy: {
+        serializedName: "createdBy",
+        type: {
+          name: "String"
+        }
+      }
+    }
+  }
+};
+
+export const Operation: msRest.CompositeMapper = {
+  serializedName: "Operation",
+  type: {
+    name: "Composite",
+    className: "Operation",
+    modelProperties: {
+      operationType: {
+        serializedName: "operationType",
+        type: {
+          name: "String"
+        }
+      },
+      path: {
+        serializedName: "path",
+        type: {
+          name: "String"
+        }
+      },
+      op: {
+        serializedName: "op",
+        type: {
+          name: "String"
+        }
+      },
+      from: {
+        serializedName: "from",
+        type: {
+          name: "String"
+        }
+      },
+      value: {
+        serializedName: "value",
+        type: {
+          name: "Object"
+        }
+      }
+    }
+  }
+};
+
+export const WorldMapSummaryViewModel: msRest.CompositeMapper = {
+  serializedName: "WorldMapSummaryViewModel",
+  type: {
+    name: "Composite",
+    className: "WorldMapSummaryViewModel",
+    modelProperties: {
+      id: {
+        serializedName: "id",
+        type: {
+          name: "String"
+        }
+      },
+      gameId: {
+        serializedName: "gameId",
+        type: {
+          name: "String"
+        }
+      },
+      name: {
+        serializedName: "name",
+        type: {
+          name: "String"
+        }
+      },
+      createdBy: {
+        serializedName: "createdBy",
+        type: {
+          name: "String"
+        }
+      }
+    }
+  }
+};
+
+export const WorldMapCreateViewModel: msRest.CompositeMapper = {
+  serializedName: "WorldMapCreateViewModel",
+  type: {
+    name: "Composite",
+    className: "WorldMapCreateViewModel",
+    modelProperties: {
+      name: {
+        serializedName: "name",
+        type: {
+          name: "String"
+        }
+      }
+    }
+  }
+};
+
+export const MapSizeViewModel: msRest.CompositeMapper = {
+  serializedName: "MapSizeViewModel",
+  type: {
+    name: "Composite",
+    className: "MapSizeViewModel",
+    modelProperties: {
+      width: {
+        serializedName: "width",
+        type: {
+          name: "Number"
+        }
+      },
+      height: {
+        serializedName: "height",
+        type: {
+          name: "Number"
+        }
+      }
+    }
+  }
+};
+
+export const CoordinateViewModel: msRest.CompositeMapper = {
+  serializedName: "CoordinateViewModel",
+  type: {
+    name: "Composite",
+    className: "CoordinateViewModel",
+    modelProperties: {
+      x: {
+        serializedName: "x",
+        type: {
+          name: "Number"
+        }
+      },
+      y: {
+        serializedName: "y",
+        type: {
+          name: "Number"
+        }
+      }
+    }
+  }
+};
+
+export const CellReadViewModel: msRest.CompositeMapper = {
+  serializedName: "CellReadViewModel",
+  type: {
+    name: "Composite",
+    className: "CellReadViewModel",
+    modelProperties: {
+      spriteId: {
+        serializedName: "spriteId",
+        type: {
+          name: "String"
+        }
+      },
+      tileLocation: {
+        serializedName: "tileLocation",
+        type: {
+          name: "Composite",
+          className: "CoordinateViewModel"
+        }
+      },
+      z: {
+        serializedName: "z",
+        type: {
+          name: "Number"
+        }
+      },
+      isObstructed: {
+        serializedName: "isObstructed",
+        type: {
+          name: "Boolean"
+        }
+      }
+    }
+  }
+};
+
+export const SpriteLayerReadViewModel: msRest.CompositeMapper = {
+  serializedName: "SpriteLayerReadViewModel",
+  type: {
+    name: "Composite",
+    className: "SpriteLayerReadViewModel",
+    modelProperties: {
+      grid: {
+        serializedName: "grid",
+        type: {
+          name: "Dictionary",
+          value: {
+            type: {
+              name: "Composite",
+              className: "CellReadViewModel"
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+export const GatewayReadViewModel: msRest.CompositeMapper = {
+  serializedName: "GatewayReadViewModel",
+  type: {
+    name: "Composite",
+    className: "GatewayReadViewModel",
+    modelProperties: {
+      mapId: {
+        serializedName: "mapId",
+        type: {
+          name: "String"
+        }
+      },
+      mapCoordinate: {
+        serializedName: "mapCoordinate",
+        type: {
+          name: "Composite",
+          className: "CoordinateViewModel"
+        }
+      }
+    }
+  }
+};
+
+export const GatewayLayerReadViewModel: msRest.CompositeMapper = {
+  serializedName: "GatewayLayerReadViewModel",
+  type: {
+    name: "Composite",
+    className: "GatewayLayerReadViewModel",
+    modelProperties: {
+      grid: {
+        serializedName: "grid",
+        type: {
+          name: "Dictionary",
+          value: {
+            type: {
+              name: "Composite",
+              className: "GatewayReadViewModel"
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+export const ElevationReadViewModel: msRest.CompositeMapper = {
+  serializedName: "ElevationReadViewModel",
+  type: {
+    name: "Composite",
+    className: "ElevationReadViewModel",
+    modelProperties: {
+      baseLayer: {
+        serializedName: "baseLayer",
+        type: {
+          name: "Composite",
+          className: "SpriteLayerReadViewModel"
+        }
+      },
+      terrainLayer: {
+        serializedName: "terrainLayer",
+        type: {
+          name: "Composite",
+          className: "SpriteLayerReadViewModel"
+        }
+      },
+      structureLayer: {
+        serializedName: "structureLayer",
+        type: {
+          name: "Composite",
+          className: "SpriteLayerReadViewModel"
+        }
+      },
+      partitionLayer: {
+        serializedName: "partitionLayer",
+        type: {
+          name: "Composite",
+          className: "SpriteLayerReadViewModel"
+        }
+      },
+      ceilingObjectLayer: {
+        serializedName: "ceilingObjectLayer",
+        type: {
+          name: "Composite",
+          className: "SpriteLayerReadViewModel"
+        }
+      },
+      floorObjectLayer: {
+        serializedName: "floorObjectLayer",
+        type: {
+          name: "Composite",
+          className: "SpriteLayerReadViewModel"
+        }
+      },
+      suspendedObjectLayer: {
+        serializedName: "suspendedObjectLayer",
+        type: {
+          name: "Composite",
+          className: "SpriteLayerReadViewModel"
+        }
+      },
+      wallObjectLayer: {
+        serializedName: "wallObjectLayer",
+        type: {
+          name: "Composite",
+          className: "SpriteLayerReadViewModel"
+        }
+      },
+      gatewayLayer: {
+        serializedName: "gatewayLayer",
+        type: {
+          name: "Composite",
+          className: "GatewayLayerReadViewModel"
+        }
+      }
+    }
+  }
+};
+
+export const WorldMapReadViewModel: msRest.CompositeMapper = {
+  serializedName: "WorldMapReadViewModel",
+  type: {
+    name: "Composite",
+    className: "WorldMapReadViewModel",
+    modelProperties: {
+      id: {
+        serializedName: "id",
+        type: {
+          name: "String"
+        }
+      },
+      gameId: {
+        serializedName: "gameId",
+        type: {
+          name: "String"
+        }
+      },
+      name: {
+        serializedName: "name",
+        type: {
+          name: "String"
+        }
+      },
+      createdBy: {
+        serializedName: "createdBy",
+        type: {
+          name: "String"
+        }
+      },
+      dateCreated: {
+        serializedName: "dateCreated",
+        type: {
+          name: "DateTime"
+        }
+      },
+      dateModified: {
+        serializedName: "dateModified",
+        type: {
+          name: "DateTime"
+        }
+      },
+      size: {
+        serializedName: "size",
+        type: {
+          name: "Composite",
+          className: "MapSizeViewModel"
+        }
+      },
+      elevations: {
+        serializedName: "elevations",
+        type: {
+          name: "Dictionary",
+          value: {
+            type: {
+              name: "Composite",
+              className: "ElevationReadViewModel"
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
 export const UserSummaryViewModel: msRest.CompositeMapper = {
   serializedName: "UserSummaryViewModel",
   type: {
@@ -148,6 +650,38 @@ export const UserReplaceViewModel: msRest.CompositeMapper = {
         serializedName: "displayName",
         type: {
           name: "String"
+        }
+      }
+    }
+  }
+};
+
+export const GetGamesHeaders: msRest.CompositeMapper = {
+  serializedName: "getgames-headers",
+  type: {
+    name: "Composite",
+    className: "GetGamesHeaders",
+    modelProperties: {
+      xTotalCount: {
+        serializedName: "x-total-count",
+        type: {
+          name: "Number"
+        }
+      }
+    }
+  }
+};
+
+export const GetWorldMapsHeaders: msRest.CompositeMapper = {
+  serializedName: "getworldmaps-headers",
+  type: {
+    name: "Composite",
+    className: "GetWorldMapsHeaders",
+    modelProperties: {
+      xTotalCount: {
+        serializedName: "x-total-count",
+        type: {
+          name: "Number"
         }
       }
     }

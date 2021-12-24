@@ -15,6 +15,157 @@ export interface AccessTokenCreateViewModel {
 }
 
 /**
+ * An interface representing CurrentContextReadViewModel.
+ */
+export interface CurrentContextReadViewModel {
+  userId?: string;
+  email?: string;
+  displayName?: string;
+}
+
+/**
+ * An interface representing GameSummaryViewModel.
+ */
+export interface GameSummaryViewModel {
+  id?: string;
+  name?: string;
+  ownedBy?: string;
+  players?: string[];
+}
+
+/**
+ * An interface representing GameCreateViewModel.
+ */
+export interface GameCreateViewModel {
+  name?: string;
+}
+
+/**
+ * An interface representing GameReadViewModel.
+ */
+export interface GameReadViewModel {
+  id?: string;
+  name?: string;
+  ownedBy?: string;
+  players?: string[];
+  createdBy?: string;
+}
+
+/**
+ * An interface representing Operation.
+ */
+export interface Operation {
+  /**
+   * Possible values include: 'Add', 'Remove', 'Replace', 'Move', 'Copy', 'Test', 'Invalid'
+   */
+  operationType?: OperationType;
+  path?: string;
+  op?: string;
+  from?: string;
+  value?: any;
+}
+
+/**
+ * An interface representing WorldMapSummaryViewModel.
+ */
+export interface WorldMapSummaryViewModel {
+  id?: string;
+  gameId?: string;
+  name?: string;
+  createdBy?: string;
+}
+
+/**
+ * An interface representing WorldMapCreateViewModel.
+ */
+export interface WorldMapCreateViewModel {
+  name?: string;
+}
+
+/**
+ * An interface representing MapSizeViewModel.
+ */
+export interface MapSizeViewModel {
+  width?: number;
+  height?: number;
+}
+
+/**
+ * An interface representing CoordinateViewModel.
+ */
+export interface CoordinateViewModel {
+  x?: number;
+  y?: number;
+}
+
+/**
+ * An interface representing CellReadViewModel.
+ */
+export interface CellReadViewModel {
+  spriteId?: string;
+  tileLocation?: CoordinateViewModel;
+  z?: number;
+  isObstructed?: boolean;
+}
+
+/**
+ * An interface representing SpriteLayerReadViewModel.
+ */
+export interface SpriteLayerReadViewModel {
+  /**
+   * Grid key represents a coordinate and should be formatted as "{int x}:{int y}".
+   */
+  grid?: { [propertyName: string]: CellReadViewModel };
+}
+
+/**
+ * An interface representing GatewayReadViewModel.
+ */
+export interface GatewayReadViewModel {
+  mapId?: string;
+  mapCoordinate?: CoordinateViewModel;
+}
+
+/**
+ * An interface representing GatewayLayerReadViewModel.
+ */
+export interface GatewayLayerReadViewModel {
+  grid?: { [propertyName: string]: GatewayReadViewModel };
+}
+
+/**
+ * An interface representing ElevationReadViewModel.
+ */
+export interface ElevationReadViewModel {
+  baseLayer?: SpriteLayerReadViewModel;
+  terrainLayer?: SpriteLayerReadViewModel;
+  structureLayer?: SpriteLayerReadViewModel;
+  partitionLayer?: SpriteLayerReadViewModel;
+  ceilingObjectLayer?: SpriteLayerReadViewModel;
+  floorObjectLayer?: SpriteLayerReadViewModel;
+  suspendedObjectLayer?: SpriteLayerReadViewModel;
+  wallObjectLayer?: SpriteLayerReadViewModel;
+  gatewayLayer?: GatewayLayerReadViewModel;
+}
+
+/**
+ * An interface representing WorldMapReadViewModel.
+ */
+export interface WorldMapReadViewModel {
+  id?: string;
+  gameId?: string;
+  name?: string;
+  createdBy?: string;
+  dateCreated?: Date;
+  dateModified?: Date;
+  size?: MapSizeViewModel;
+  /**
+   * Elevations key is an int that represents the y index of the corresponding Elevation object.
+   */
+  elevations?: { [propertyName: string]: ElevationReadViewModel };
+}
+
+/**
  * An interface representing UserSummaryViewModel.
  */
 export interface UserSummaryViewModel {
@@ -69,6 +220,76 @@ export interface WwaRestApiClientCreateAccessTokenOptionalParams extends msRest.
 /**
  * Optional Parameters.
  */
+export interface WwaRestApiClientQueryGamesOptionalParams extends msRest.RequestOptionsBase {
+  name?: string;
+}
+
+/**
+ * Optional Parameters.
+ */
+export interface WwaRestApiClientGetGamesOptionalParams extends msRest.RequestOptionsBase {
+  skip?: number;
+  take?: number;
+  sortField?: string;
+  /**
+   * Possible values include: 'Ascending', 'Descending'
+   */
+  sortDirection?: SortDirection;
+  search?: string;
+}
+
+/**
+ * Optional Parameters.
+ */
+export interface WwaRestApiClientCreateGameOptionalParams extends msRest.RequestOptionsBase {
+  body?: GameCreateViewModel;
+}
+
+/**
+ * Optional Parameters.
+ */
+export interface WwaRestApiClientUpdateGameOptionalParams extends msRest.RequestOptionsBase {
+  body?: Operation[];
+}
+
+/**
+ * Optional Parameters.
+ */
+export interface WwaRestApiClientQueryWorldMapsOptionalParams extends msRest.RequestOptionsBase {
+  name?: string;
+}
+
+/**
+ * Optional Parameters.
+ */
+export interface WwaRestApiClientGetWorldMapsOptionalParams extends msRest.RequestOptionsBase {
+  skip?: number;
+  take?: number;
+  sortField?: string;
+  /**
+   * Possible values include: 'Ascending', 'Descending'
+   */
+  sortDirection?: SortDirection1;
+  search?: string;
+}
+
+/**
+ * Optional Parameters.
+ */
+export interface WwaRestApiClientCreateWorldMapOptionalParams extends msRest.RequestOptionsBase {
+  body?: WorldMapCreateViewModel;
+}
+
+/**
+ * Optional Parameters.
+ */
+export interface WwaRestApiClientUpdateWorldMapOptionalParams extends msRest.RequestOptionsBase {
+  body?: Operation[];
+}
+
+/**
+ * Optional Parameters.
+ */
 export interface WwaRestApiClientQueryUsersOptionalParams extends msRest.RequestOptionsBase {
   email?: string;
 }
@@ -83,7 +304,7 @@ export interface WwaRestApiClientGetUsersOptionalParams extends msRest.RequestOp
   /**
    * Possible values include: 'Ascending', 'Descending'
    */
-  sortDirection?: SortDirection;
+  sortDirection?: SortDirection2;
   search?: string;
 }
 
@@ -102,6 +323,26 @@ export interface WwaRestApiClientReplaceUserOptionalParams extends msRest.Reques
 }
 
 /**
+ * Defines headers for GetGames operation.
+ */
+export interface GetGamesHeaders {
+  /**
+   * The total number of filtered resources.
+   */
+  xTotalCount: number;
+}
+
+/**
+ * Defines headers for GetWorldMaps operation.
+ */
+export interface GetWorldMapsHeaders {
+  /**
+   * The total number of filtered resources.
+   */
+  xTotalCount: number;
+}
+
+/**
  * Defines headers for GetUsers operation.
  */
 export interface GetUsersHeaders {
@@ -112,12 +353,36 @@ export interface GetUsersHeaders {
 }
 
 /**
+ * Defines values for OperationType.
+ * Possible values include: 'Add', 'Remove', 'Replace', 'Move', 'Copy', 'Test', 'Invalid'
+ * @readonly
+ * @enum {string}
+ */
+export type OperationType = 'Add' | 'Remove' | 'Replace' | 'Move' | 'Copy' | 'Test' | 'Invalid';
+
+/**
  * Defines values for SortDirection.
  * Possible values include: 'Ascending', 'Descending'
  * @readonly
  * @enum {string}
  */
 export type SortDirection = 'Ascending' | 'Descending';
+
+/**
+ * Defines values for SortDirection1.
+ * Possible values include: 'Ascending', 'Descending'
+ * @readonly
+ * @enum {string}
+ */
+export type SortDirection1 = 'Ascending' | 'Descending';
+
+/**
+ * Defines values for SortDirection2.
+ * Possible values include: 'Ascending', 'Descending'
+ * @readonly
+ * @enum {string}
+ */
+export type SortDirection2 = 'Ascending' | 'Descending';
 
 /**
  * Contains response data for the createAccessToken operation.
@@ -141,6 +406,196 @@ export type CreateAccessTokenResponse = {
        * The response body as parsed JSON or XML
        */
       parsedBody: string;
+    };
+};
+
+/**
+ * Contains response data for the getCurrentContext operation.
+ */
+export type GetCurrentContextResponse = CurrentContextReadViewModel & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: CurrentContextReadViewModel;
+    };
+};
+
+/**
+ * Contains response data for the getGames operation.
+ */
+export type GetGamesResponse = Array<GameSummaryViewModel> & GetGamesHeaders & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The parsed HTTP response headers.
+       */
+      parsedHeaders: GetGamesHeaders;
+
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: GameSummaryViewModel[];
+    };
+};
+
+/**
+ * Contains response data for the createGame operation.
+ */
+export type CreateGameResponse = GameReadViewModel & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: GameReadViewModel;
+    };
+};
+
+/**
+ * Contains response data for the getGame operation.
+ */
+export type GetGameResponse = GameReadViewModel & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: GameReadViewModel;
+    };
+};
+
+/**
+ * Contains response data for the updateGame operation.
+ */
+export type UpdateGameResponse = GameReadViewModel & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: GameReadViewModel;
+    };
+};
+
+/**
+ * Contains response data for the getWorldMaps operation.
+ */
+export type GetWorldMapsResponse = Array<WorldMapSummaryViewModel> & GetWorldMapsHeaders & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The parsed HTTP response headers.
+       */
+      parsedHeaders: GetWorldMapsHeaders;
+
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: WorldMapSummaryViewModel[];
+    };
+};
+
+/**
+ * Contains response data for the createWorldMap operation.
+ */
+export type CreateWorldMapResponse = WorldMapReadViewModel & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: WorldMapReadViewModel;
+    };
+};
+
+/**
+ * Contains response data for the getWorldMap operation.
+ */
+export type GetWorldMapResponse = WorldMapReadViewModel & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: WorldMapReadViewModel;
+    };
+};
+
+/**
+ * Contains response data for the updateWorldMap operation.
+ */
+export type UpdateWorldMapResponse = WorldMapReadViewModel & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: WorldMapReadViewModel;
     };
 };
 

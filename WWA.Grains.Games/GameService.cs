@@ -29,13 +29,19 @@ namespace WWA.Grains.Games
             _gameRepository = gameRepository;
         }
 
-        public async Task<int> QueryGamesAsync(string ownedBy, string name)
+        public async Task<int> QueryGamesAsync(
+            string gameId = null,
+            string playerId = null,
+            string ownedBy = null,
+            string name = null)
         {
-            int count = await _gameRepository.ExistsAsync(ownedBy, name);
+            int count = await _gameRepository.ExistsAsync(gameId, playerId, ownedBy, name);
             return count;
         }
 
-        public async Task<PaginatedEntityModel<GameModel>> GetGamesAsync(string userId, PaginationQueryModel paginationQuery)
+        public async Task<PaginatedEntityModel<GameModel>> GetGamesAsync(
+            string userId,
+            PaginationQueryModel paginationQuery)
         {
             PaginatedEntityModel<GameModel> gameModels = new PaginatedEntityModel<GameModel>();
             try
@@ -65,7 +71,7 @@ namespace WWA.Grains.Games
             gameModel.OwnedBy = userId;
             gameModel.Players = new List<string> { userId };
 
-            int count = await _gameRepository.ExistsAsync(gameModel.OwnedBy, gameModel.Name);
+            int count = await _gameRepository.ExistsAsync(ownedBy: gameModel.OwnedBy, name: gameModel.Name);
             if (count > 0)
             {
                 throw new Exception($"Game named {gameModel.Name} already exists");

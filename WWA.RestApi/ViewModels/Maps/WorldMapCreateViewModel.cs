@@ -1,6 +1,6 @@
 ﻿namespace WWA.RestApi.ViewModels.Maps
 {
-    public class MapCreateViewModel
+    public class WorldMapCreateViewModel
     {
         public string Name { get; set; }
     }
